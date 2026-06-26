@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="280" viewBox="0 0 900 280">
+    <defs>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap');
+            
+            .section-title {
+                font-family: 'Inter', sans-serif;
+                font-weight: 700;
+                font-size: 28px;
+                fill: #FDF2F8;
+                filter: drop-shadow(0 0 8px rgba(244, 114, 182, 0.4));
+            }
+            .stat-label {
+                font-family: 'Inter', sans-serif;
+                font-weight: 600;
+                font-size: 13px;
+                fill: #F472B6;
+            }
+            .stat-value {
+                font-family: 'Inter', sans-serif;
+                font-weight: 700;
+                font-size: 36px;
+                fill: #FDF2F8;
+                filter: drop-shadow(0 0 4px rgba(253, 242, 248, 0.3));
+            }
+            .cert-text {
+                font-family: 'Inter', sans-serif;
+                font-weight: 400;
+                font-size: 13px;
+                fill: #D4B0C7;
+            }
+            .cert-badge {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 11px;
+                fill: #60A5FA;
+            }
+            
+            .card-bg {
+                fill: rgba(30, 15, 50, 0.7);
+                stroke: rgba(244, 114, 182, 0.15);
+                stroke-width: 1;
+                rx: 16;
+            }
+            .glow-line { stroke: url(#secLineGrad); stroke-width: 2; }
+            
+            .shield { animation: shieldGlow 3s infinite alternate; }
+            @keyframes shieldGlow {
+                0% { filter: drop-shadow(0 0 3px rgba(244, 114, 182, 0.3)); }
+                100% { filter: drop-shadow(0 0 15px rgba(244, 114, 182, 0.7)); }
+            }
+            
+            .scan-ring { fill: none; stroke: #F472B6; stroke-width: 2; opacity: 0; animation: scanPulse 4s infinite; }
+            @keyframes scanPulse {
+                0% { r: 15; opacity: 0.8; }
+                100% { r: 60; opacity: 0; }
+            }
+        </style>
+        <linearGradient id="bgGrad3" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#140A28"/>
+            <stop offset="100%" stop-color="#0E0720"/>
+        </linearGradient>
+        <linearGradient id="secLineGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#F472B6" stop-opacity="0"/>
+            <stop offset="50%" stop-color="#F472B6"/>
+            <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+
+    <rect width="900" height="280" fill="url(#bgGrad3)"/>
+
+    <!-- Title -->
+    <text x="450" y="40" text-anchor="middle" class="section-title">🛡 Security Basecamp</text>
+    <line x1="280" y1="55" x2="620" y2="55" class="glow-line"/>
+
+    <!-- Left: Stats Card -->
+    <g transform="translate(40, 75)">
+        <rect width="260" height="180" class="card-bg"/>
+        
+        <!-- Shield Icon -->
+        <g transform="translate(130, 55)" class="shield">
+            <path d="M 0 -40 L 40 -25 L 40 10 Q 40 45, 0 55 Q -40 45, -40 10 L -40 -25 Z" fill="none" stroke="#F472B6" stroke-width="2.5"/>
+            <path d="M -15 0 L -5 10 L 18 -15" fill="none" stroke="#F472B6" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        
+        <!-- Radar rings -->
+        <circle cx="130" cy="55" class="scan-ring" style="animation-delay: 0s"/>
+        <circle cx="130" cy="55" class="scan-ring" style="animation-delay: 2s"/>
+        
+        <text x="130" y="135" text-anchor="middle" class="stat-label">CVEs REPORTED</text>
+        <text x="130" y="168" text-anchor="middle" class="stat-value">25+</text>
+    </g>
+
+    <!-- Middle: Platforms -->
+    <g transform="translate(320, 75)">
+        <rect width="260" height="180" class="card-bg"/>
+        <text x="130" y="30" text-anchor="middle" class="stat-label">PLATFORMS</text>
+        
+        <rect x="30" y="50" width="200" height="35" rx="10" fill="rgba(96,165,250,0.1)" stroke="rgba(96,165,250,0.2)" stroke-width="1"/>
+        <text x="130" y="73" text-anchor="middle" class="cert-text" fill="#60A5FA" font-size="14">Bugcrowd</text>
+        
+        <rect x="30" y="95" width="200" height="35" rx="10" fill="rgba(96,165,250,0.1)" stroke="rgba(96,165,250,0.2)" stroke-width="1"/>
+        <text x="130" y="118" text-anchor="middle" class="cert-text" fill="#60A5FA" font-size="14">HackerOne</text>
+        
+        <text x="130" y="160" text-anchor="middle" class="stat-label">SECURITY RESEARCHER</text>
+    </g>
+
+    <!-- Right: Certifications -->
+    <g transform="translate(600, 75)">
+        <rect width="260" height="180" class="card-bg"/>
+        <text x="130" y="30" text-anchor="middle" class="stat-label">CERTIFICATIONS</text>
+        
+        <text x="20" y="60" class="cert-text">✦ GRC &amp; Cybersecurity (IFS Pune)</text>
+        <text x="20" y="85" class="cert-text">✦ DDoS Attack &amp; Defense</text>
+        <text x="20" y="110" class="cert-text">✦ Advanced System Security</text>
+        <text x="20" y="135" class="cert-text">✦ Cloud Computing Security</text>
+
+        <rect x="20" y="150" width="220" height="3" rx="2" fill="#311A42"/>
+        <rect x="20" y="150" width="180" height="3" rx="2" fill="#F472B6" opacity="0.6"/>
+    </g>
+</svg>

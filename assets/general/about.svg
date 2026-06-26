@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="180" viewBox="0 0 900 180">
+    <defs>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap');
+            
+            .name {
+                font-family: 'Inter', sans-serif;
+                font-weight: 800;
+                font-size: 52px;
+                fill: #FDF2F8;
+                filter: drop-shadow(0 0 12px rgba(244, 114, 182, 0.5));
+            }
+            .role {
+                font-family: 'Inter', sans-serif;
+                font-weight: 300;
+                font-size: 20px;
+                fill: #FBCFE8;
+                letter-spacing: 4px;
+            }
+            .terminal {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 15px;
+                fill: #60A5FA;
+            }
+            .cursor {
+                fill: #60A5FA;
+                animation: blink 1s step-end infinite;
+            }
+            @keyframes blink { 50% { opacity: 0; } }
+            
+            .line { stroke: url(#lineGrad); stroke-width: 1; }
+            
+            .dot { fill: #F472B6; animation: pulse 2s ease-in-out infinite; }
+            @keyframes pulse { 0%,100% { opacity: 0.3; r: 3; } 50% { opacity: 1; r: 5; } }
+            
+            .petal-small { fill: #FBCFE8; opacity: 0; animation: drift 10s linear infinite; }
+            @keyframes drift {
+                0% { transform: translate(100px, 0px) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.6; }
+                90% { opacity: 0.3; }
+                100% { transform: translate(-200px, 200px) rotate(360deg); opacity: 0; }
+            }
+        </style>
+        <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0E0720"/>
+            <stop offset="100%" stop-color="#1A0B30"/>
+        </linearGradient>
+        <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#F472B6" stop-opacity="0"/>
+            <stop offset="50%" stop-color="#F472B6"/>
+            <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+
+    <rect width="900" height="180" fill="url(#bgGrad)" rx="0"/>
+
+    <!-- Subtle sakura -->
+    <path d="M 800 0 C 806 -3, 806 3, 800 6 C 794 3, 794 -3, 800 0" class="petal-small" style="animation-delay:0s;"/>
+    <path d="M 650 -10 C 656 -13, 656 -7, 650 -4 C 644 -7, 644 -13, 650 -10" class="petal-small" style="animation-delay:3s;"/>
+    <path d="M 500 5 C 506 2, 506 8, 500 11 C 494 8, 494 2, 500 5" class="petal-small" style="animation-delay:6s;"/>
+
+    <!-- Name -->
+    <text x="450" y="65" text-anchor="middle" class="name">Tanmay Mishra</text>
+    
+    <!-- Role -->
+    <text x="450" y="100" text-anchor="middle" class="role">SOFTWARE ENGINEER · CYBERSECURITY · DISTRIBUTED SYSTEMS</text>
+
+    <!-- Divider -->
+    <line x1="200" y1="120" x2="700" y2="120" class="line"/>
+
+    <!-- Terminal line -->
+    <text x="300" y="155" class="terminal">~/tanmay $ <tspan fill="#FBCFE8">ready to build</tspan></text>
+    <rect x="478" y="140" width="10" height="16" class="cursor"/>
+
+    <!-- Status dots -->
+    <circle cx="200" cy="150" r="4" class="dot" style="animation-delay:0s"/>
+    <circle cx="215" cy="150" r="4" class="dot" style="animation-delay:0.3s"/>
+    <circle cx="230" cy="150" r="4" class="dot" style="animation-delay:0.6s"/>
+</svg>

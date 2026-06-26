@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620">
+    <defs>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap');
+            
+            .section-title {
+                font-family: 'Inter', sans-serif;
+                font-weight: 700;
+                font-size: 28px;
+                fill: #FDF2F8;
+                filter: drop-shadow(0 0 8px rgba(244, 114, 182, 0.4));
+            }
+            .card-title {
+                font-family: 'Inter', sans-serif;
+                font-weight: 700;
+                font-size: 18px;
+                fill: #FDF2F8;
+            }
+            .card-desc {
+                font-family: 'Inter', sans-serif;
+                font-weight: 400;
+                font-size: 13px;
+                fill: #D4B0C7;
+            }
+            .card-tech {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 11px;
+                fill: #60A5FA;
+            }
+            .btn {
+                font-family: 'Inter', sans-serif;
+                font-weight: 600;
+                font-size: 11px;
+                fill: #FDF2F8;
+            }
+            
+            .card-bg {
+                fill: rgba(30, 15, 50, 0.7);
+                stroke: rgba(244, 114, 182, 0.15);
+                stroke-width: 1;
+                rx: 16;
+                transition: all 0.3s;
+            }
+            .card-bg:hover {
+                stroke: rgba(244, 114, 182, 0.5);
+                filter: drop-shadow(0 0 15px rgba(244, 114, 182, 0.2));
+            }
+            
+            .badge-bg { fill: rgba(244, 114, 182, 0.15); rx: 12; }
+            .btn-bg { fill: rgba(96, 165, 250, 0.2); stroke: rgba(96, 165, 250, 0.4); stroke-width: 1; rx: 8; }
+
+            .glow-line { stroke: url(#cardLineGrad); stroke-width: 2; }
+            
+            .float-card { animation: floatCard 6s ease-in-out infinite; }
+            @keyframes floatCard {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-4px); }
+            }
+            
+            .status-dot { fill: #10B981; animation: statusPulse 2s infinite; }
+            @keyframes statusPulse { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
+            
+            .flagship-glow { animation: flagshipGlow 3s infinite alternate; }
+            @keyframes flagshipGlow {
+                0% { filter: drop-shadow(0 0 4px rgba(244, 114, 182, 0.3)); }
+                100% { filter: drop-shadow(0 0 15px rgba(244, 114, 182, 0.6)); }
+            }
+        </style>
+        <linearGradient id="bgGrad2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0E0720"/>
+            <stop offset="100%" stop-color="#140A28"/>
+        </linearGradient>
+        <linearGradient id="cardLineGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#F472B6" stop-opacity="0"/>
+            <stop offset="50%" stop-color="#F472B6"/>
+            <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="flagGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F472B6" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#60A5FA" stop-opacity="0.1"/>
+        </linearGradient>
+    </defs>
+
+    <rect width="900" height="620" fill="url(#bgGrad2)"/>
+
+    <!-- Section Title -->
+    <text x="450" y="45" text-anchor="middle" class="section-title">⛩ Expeditions &amp; Engineering</text>
+    <line x1="250" y1="60" x2="650" y2="60" class="glow-line"/>
+
+    <!-- ═══════ FLAGSHIP CARD: HunterMind ═══════ -->
+    <g class="float-card flagship-glow" transform="translate(40, 80)">
+        <rect width="820" height="130" class="card-bg" fill="url(#flagGrad)" stroke="rgba(244,114,182,0.3)"/>
+        
+        <!-- Flagship Badge -->
+        <rect x="15" y="15" width="90" height="24" class="badge-bg"/>
+        <text x="60" y="31" text-anchor="middle" class="btn" fill="#F472B6" font-size="10">🚀 FLAGSHIP</text>
+        
+        <text x="120" y="32" class="card-title">HunterMind</text>
+        <text x="270" y="32" class="card-desc" font-size="14" fill="#FBCFE8">— Automated Threat Intelligence Engine</text>
+        
+        <text x="15" y="60" class="card-desc">Orchestrates OSINT and vulnerability scanning using distributed task queue with Redis &amp; Celery.</text>
+        <text x="15" y="78" class="card-desc">Microservices pipeline: Recon · Subdomains · DNS · CT Logs · ASN · Wayback · API Discovery</text>
+
+        <!-- Tech Tags -->
+        <rect x="15" y="92" width="55" height="22" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="42" y="107" text-anchor="middle" class="card-tech">Python</text>
+        <rect x="78" y="92" width="35" height="22" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="95" y="107" text-anchor="middle" class="card-tech">Go</text>
+        <rect x="121" y="92" width="55" height="22" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="148" y="107" text-anchor="middle" class="card-tech">Docker</text>
+        <rect x="184" y="92" width="45" height="22" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="206" y="107" text-anchor="middle" class="card-tech">AWS</text>
+
+        <!-- Buttons -->
+        <rect x="620" y="92" width="80" height="26" class="btn-bg"/>
+        <text x="660" y="109" text-anchor="middle" class="btn" fill="#60A5FA">🔗 Repo</text>
+        <rect x="710" y="92" width="90" height="26" class="btn-bg"/>
+        <text x="755" y="109" text-anchor="middle" class="btn" fill="#60A5FA">📜 Docs</text>
+        
+        <circle cx="800" cy="20" r="5" class="status-dot"/>
+    </g>
+
+    <!-- ═══════ PROJECT CARDS ROW 1 ═══════ -->
+    <!-- DOMA -->
+    <g class="float-card" style="animation-delay: 0.5s" transform="translate(40, 225)">
+        <rect width="400" height="120" class="card-bg"/>
+        <text x="20" y="32" class="card-title">DOMA</text>
+        <text x="20" y="55" class="card-desc">High-throughput distributed order processing</text>
+        <text x="20" y="72" class="card-desc">system mimicking Swiggy/Zomato logistics.</text>
+        <rect x="20" y="88" width="80" height="20" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="60" y="102" text-anchor="middle" class="card-tech">Spring Boot</text>
+        <rect x="108" y="88" width="50" height="20" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="133" y="102" text-anchor="middle" class="card-tech">Kafka</text>
+        <rect x="166" y="88" width="80" height="20" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="206" y="102" text-anchor="middle" class="card-tech">PostgreSQL</text>
+        <rect x="300" y="88" width="80" height="22" class="btn-bg"/>
+        <text x="340" y="103" text-anchor="middle" class="btn" fill="#60A5FA">🔗 Repo</text>
+    </g>
+
+    <!-- FileGuard -->
+    <g class="float-card" style="animation-delay: 1s" transform="translate(460, 225)">
+        <rect width="400" height="120" class="card-bg"/>
+        <text x="20" y="32" class="card-title">FileGuard</text>
+        <text x="20" y="55" class="card-desc">File Integrity Monitoring System achieving</text>
+        <text x="20" y="72" class="card-desc">99.9% detection accuracy.</text>
+        <rect x="20" y="88" width="55" height="20" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="47" y="102" text-anchor="middle" class="card-tech">Python</text>
+        <rect x="83" y="88" width="50" height="20" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="108" y="102" text-anchor="middle" class="card-tech">Flask</text>
+        <rect x="141" y="88" width="55" height="20" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="168" y="102" text-anchor="middle" class="card-tech">Celery</text>
+        <rect x="300" y="88" width="80" height="22" class="btn-bg"/>
+        <text x="340" y="103" text-anchor="middle" class="btn" fill="#60A5FA">🔗 Repo</text>
+    </g>
+
+    <!-- ═══════ PROJECT CARDS ROW 2 ═══════ -->
+    <!-- Oil Spill -->
+    <g class="float-card" style="animation-delay: 1.5s" transform="translate(40, 360)">
+        <rect width="400" height="120" class="card-bg"/>
+        <rect x="295" y="12" width="90" height="20" rx="6" fill="rgba(244,114,182,0.2)"/>
+        <text x="340" y="26" text-anchor="middle" class="btn" fill="#F472B6" font-size="10">🏆 SIH Finalist</text>
+        <text x="20" y="32" class="card-title">Oil Spill Detection</text>
+        <text x="20" y="55" class="card-desc">Early warning system using ML &amp; satellite</text>
+        <text x="20" y="72" class="card-desc">imagery. Reduced alert times by 40%.</text>
+        <rect x="20" y="88" width="35" height="20" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="37" y="102" text-anchor="middle" class="card-tech">ML</text>
+        <rect x="63" y="88" width="35" height="20" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="80" y="102" text-anchor="middle" class="card-tech">GIS</text>
+        <rect x="106" y="88" width="60" height="20" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="136" y="102" text-anchor="middle" class="card-tech">Satellite</text>
+        <rect x="300" y="88" width="80" height="22" class="btn-bg"/>
+        <text x="340" y="103" text-anchor="middle" class="btn" fill="#60A5FA">🔗 Repo</text>
+    </g>
+
+    <!-- GSoC -->
+    <g class="float-card" style="animation-delay: 2s" transform="translate(460, 360)">
+        <rect width="400" height="120" class="card-bg"/>
+        <rect x="280" y="12" width="105" height="20" rx="6" fill="rgba(244,114,182,0.2)"/>
+        <text x="332" y="26" text-anchor="middle" class="btn" fill="#F472B6" font-size="10">☀️ GSoC 2019</text>
+        <text x="20" y="32" class="card-title">Submitty Core</text>
+        <text x="20" y="55" class="card-desc">Built WebSocket-based real-time forum</text>
+        <text x="20" y="72" class="card-desc">modules. Open-source contributor.</text>
+        <rect x="20" y="88" width="40" height="20" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="40" y="102" text-anchor="middle" class="card-tech">PHP</text>
+        <rect x="68" y="88" width="85" height="20" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="110" y="102" text-anchor="middle" class="card-tech">WebSockets</text>
+        <rect x="161" y="88" width="70" height="20" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="196" y="102" text-anchor="middle" class="card-tech">REST APIs</text>
+        <rect x="300" y="88" width="80" height="22" class="btn-bg"/>
+        <text x="340" y="103" text-anchor="middle" class="btn" fill="#60A5FA">🔗 Repo</text>
+    </g>
+
+    <!-- ═══════ VISION (single wide) ═══════ -->
+    <g class="float-card" style="animation-delay: 2.5s" transform="translate(40, 500)">
+        <rect width="820" height="90" class="card-bg"/>
+        <text x="20" y="32" class="card-title">Vision — Software Engineering Intern</text>
+        <text x="20" y="58" class="card-desc">Redesigned order management service resulting in a 30% execution speedup. Production-grade Spring microservices.</text>
+        <rect x="20" y="68" width="80" height="18" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="60" y="80" text-anchor="middle" class="card-tech">Spring Boot</text>
+        <rect x="108" y="68" width="80" height="18" rx="6" fill="rgba(96,165,250,0.15)"/>
+        <text x="148" y="80" text-anchor="middle" class="card-tech">Microservices</text>
+    </g>
+</svg>

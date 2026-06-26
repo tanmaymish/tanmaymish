@@ -1,58 +1,74 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="180" viewBox="0 0 900 180">
     <defs>
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono&amp;display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=JetBrains+Mono&amp;display=swap');
             
-            .bg { fill: #14082B; }
+            .quote {
+                font-family: 'Inter', sans-serif;
+                font-weight: 300;
+                font-style: italic;
+                font-size: 18px;
+                fill: #FBCFE8;
+                filter: drop-shadow(0 0 4px rgba(251, 207, 232, 0.3));
+            }
+            .author {
+                font-family: 'Inter', sans-serif;
+                font-weight: 600;
+                font-size: 14px;
+                fill: #F472B6;
+            }
+            .links {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 13px;
+                fill: #60A5FA;
+                filter: drop-shadow(0 0 3px rgba(96, 165, 250, 0.4));
+            }
+            .end-tag {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 11px;
+                fill: #7E22CE;
+            }
+
             .hill-1 { fill: #311A42; }
             .hill-2 { fill: #1F0D36; }
-            
-            .quote { font-family: 'Inter', sans-serif; font-weight: 400; font-style: italic; font-size: 16px; fill: #FBCFE8; text-anchor: middle; filter: drop-shadow(0 0 2px rgba(251, 207, 232, 0.4));}
-            .author { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; fill: #F472B6; text-anchor: middle; }
-            .links { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #60A5FA; text-anchor: middle; }
             
             @keyframes panHills { 
                 0% { transform: translateX(0); }
                 100% { transform: translateX(-400px); }
             }
-            .anim-hills-slow { animation: panHills 20s linear infinite; }
-            .anim-hills-fast { animation: panHills 12s linear infinite reverse; }
+            .anim-hills-slow { animation: panHills 25s linear infinite; }
+            .anim-hills-fast { animation: panHills 15s linear infinite reverse; }
 
-            /* Sakura Animation */
-            .petal { fill: #FBCFE8; opacity: 0.8; animation: fall linear infinite; }
+            .petal { fill: #FBCFE8; opacity: 0; animation: fall linear infinite; }
             @keyframes fall {
-                from { transform: translate(100px, -50px) rotate(0deg); opacity: 0; }
-                10% { opacity: 0.9; }
-                90% { opacity: 0.6; }
-                to { transform: translate(-300px, 450px) rotate(360deg); opacity: 0; }
+                0% { transform: translate(100px, -30px) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.7; }
+                90% { opacity: 0.3; }
+                100% { transform: translate(-300px, 250px) rotate(540deg); opacity: 0; }
             }
         </style>
     </defs>
     
-    <rect width="800" height="200" class="bg" />
+    <rect width="900" height="180" fill="#0E0720" />
 
-    <!-- Animated Rolling Hills -->
-    <g transform="translate(0, 80)">
-        <g class="anim-hills-slow" opacity="0.8">
-            <path d="M 0 60 Q 100 20, 200 60 T 400 60 T 600 60 T 800 60 T 1000 60 T 1200 60 L 1200 120 L 0 120 Z" class="hill-1" />
+    <!-- Rolling hills -->
+    <g transform="translate(0, 60)">
+        <g class="anim-hills-slow" opacity="0.6">
+            <path d="M 0 60 Q 100 20, 200 60 T 400 60 T 600 60 T 800 60 T 1000 60 T 1200 60 T 1400 60 L 1400 120 L 0 120 Z" class="hill-1"/>
         </g>
-        <g class="anim-hills-fast" transform="translate(0, 20)" opacity="0.9">
-            <path d="M 0 50 Q 80 10, 160 50 T 320 50 T 480 50 T 640 50 T 800 50 T 960 50 T 1120 50 T 1280 50 L 1280 120 L 0 120 Z" class="hill-2" />
+        <g class="anim-hills-fast" transform="translate(0, 20)" opacity="0.8">
+            <path d="M 0 50 Q 80 10, 160 50 T 320 50 T 480 50 T 640 50 T 800 50 T 960 50 T 1120 50 T 1280 50 L 1280 120 L 0 120 Z" class="hill-2"/>
         </g>
     </g>
 
-    <!-- Sakura Petals -->
-    <g>
-        <path d="M 100 0 C 110 -5, 110 5, 100 10 C 90 5, 90 -5, 100 0" class="petal" style="animation-duration: 8s; animation-delay: 0s;" />
-        <path d="M 300 -50 C 310 -55, 310 -45, 300 -40 C 290 -45, 290 -55, 300 -50" class="petal" style="animation-duration: 12s; animation-delay: 2s; scale: 0.8;" />
-        <path d="M 500 -20 C 515 -25, 515 -15, 500 -10 C 485 -15, 485 -25, 500 -20" class="petal" style="animation-duration: 9s; animation-delay: 1s;" />
-        <path d="M 700 -80 C 708 -83, 708 -77, 700 -74 C 692 -77, 692 -83, 700 -80" class="petal" style="animation-duration: 10s; animation-delay: 4s; scale: 1.2" />
-    </g>
+    <!-- Sakura -->
+    <path d="M 100 0 C 106 -3, 106 3, 100 6 C 94 3, 94 -3, 100 0" class="petal" style="animation-duration:8s;animation-delay:0s;"/>
+    <path d="M 400 -10 C 406 -13, 406 -7, 400 -4 C 394 -7, 394 -13, 400 -10" class="petal" style="animation-duration:11s;animation-delay:2s;"/>
+    <path d="M 700 5 C 706 2, 706 8, 700 11 C 694 8, 694 2, 700 5" class="petal" style="animation-duration:9s;animation-delay:4s;"/>
 
-    <text x="400" y="40" class="quote">"Build systems. Not features. Dream beautifully."</text>
-    <text x="400" y="65" class="author">— Engineering Philosophy</text>
+    <text x="450" y="35" text-anchor="middle" class="quote">"Build systems. Not features. Dream beautifully."</text>
+    <text x="450" y="60" text-anchor="middle" class="author">— Engineering Philosophy</text>
     
-    <text x="400" y="150" class="links">GITHUB • LINKEDIN • EMAIL</text>
-    <text x="400" y="170" class="links" fill="#7E22CE" font-size="11">SYSTEM RESTING.</text>
-
+    <text x="450" y="110" text-anchor="middle" class="links">GITHUB · LINKEDIN · EMAIL</text>
+    <text x="450" y="135" text-anchor="middle" class="end-tag">// system resting. sakura falling.</text>
 </svg>
