@@ -16,6 +16,8 @@
 
 ## 🧑‍💻 System Initialization: `whoami`
 
+<img align="right" src="assets/mascot/claudie-float-1.svg" width="120" alt="Claudie floating with balloons" />
+
 <div align="center">
   <picture>
     <img src="assets/general/terminal.svg" alt="Terminal output showing skills and focus">
@@ -38,6 +40,8 @@
 ---
 
 ## 🏗 Distributed Systems Engineering
+
+<img align="right" src="assets/mascot/claudie-float-2.svg" width="120" alt="Claudie reading while floating" />
 
 <div align="center">
   <picture>
@@ -68,7 +72,7 @@
 
 <div align="center">
   <picture>
-    <img src="assets/mascot/claudie-typing.svg" alt="Claudie Mascot Working">
+    <img src="assets/mascot/claudie-typing.svg" width="180" alt="Claudie Mascot Working">
   </picture>
 </div>
 
@@ -80,10 +84,10 @@
   <table>
     <tr>
       <td>
-        <img align="center" src="https://github-readme-stats.vercel.app/api?username=tanmaymish&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0B1220&title_color=3B82F6&icon_color=06B6D4&text_color=E5E7EB" alt="GitHub Stats" />
+        <img align="center" src="https://github-readme-stats.vercel.app/api?username=tanmaymish&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0F0C10&title_color=FF9F1C&icon_color=00F4D2&text_color=FFFBF5" alt="GitHub Stats" />
       </td>
       <td>
-        <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=tanmaymish&layout=compact&theme=tokyonight&hide_border=true&bg_color=0B1220&title_color=3B82F6&text_color=E5E7EB" alt="Top Languages" />
+        <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=tanmaymish&layout=compact&theme=tokyonight&hide_border=true&bg_color=0F0C10&title_color=FF9F1C&text_color=FFFBF5" alt="Top Languages" />
       </td>
     </tr>
   </table>

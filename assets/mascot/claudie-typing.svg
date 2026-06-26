@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
     <defs>
         <style>
-            .base { fill: #0B1220; }
-            .body-color { fill: #3B82F6; }
-            .body-shadow { fill: #2563EB; }
-            .accent { fill: #8B5CF6; }
-            .eye { fill: #06B6D4; }
-            .screen-glow { fill: #06B6D4; opacity: 0.2; }
+            .base { fill: transparent; }
+            .body-color { fill: #FFE5D9; } /* soft peach Claude-like */
+            .body-shadow { fill: #FFCDB2; }
+            .accent { fill: #FF9F1C; }
+            .eye { fill: #2B2D42; } /* Dark soft eyes */
+            .screen-glow { fill: #00F4D2; opacity: 0.15; }
             
             /* Animations */
             @keyframes type {
                 0% { transform: translateY(0) rotate(0); }
-                25% { transform: translateY(-2px) rotate(-5deg); }
-                50% { transform: translateY(0) rotate(5deg); }
-                75% { transform: translateY(-2px) rotate(-5deg); }
+                25% { transform: translateY(-2px) rotate(-3deg); }
+                50% { transform: translateY(0) rotate(3deg); }
+                75% { transform: translateY(-2px) rotate(-3deg); }
                 100% { transform: translateY(0) rotate(0); }
             }
             .typing-hand {
@@ -30,33 +30,33 @@
                 97% { transform: scaleY(0.1); }
             }
             .eyes-group {
-                animation: blink 4s infinite;
-                transform-origin: center;
+                animation: blink 5s infinite;
+                transform-origin: 100px 105px;
             }
             
             @keyframes screenFlicker {
                 0% { opacity: 0.1; }
-                50% { opacity: 0.4; }
-                100% { opacity: 0.2; }
+                50% { opacity: 0.3; }
+                100% { opacity: 0.15; }
             }
             .screen-glow-anim {
-                animation: screenFlicker 1.5s infinite alternate;
+                animation: screenFlicker 2s infinite alternate;
             }
             
             @keyframes antennaBlink {
-                0%, 100% { fill: #EF4444; }
-                50% { fill: #22C55E; filter: drop-shadow(0 0 4px #22C55E); }
+                0%, 100% { fill: #FF9F1C; filter: drop-shadow(0 0 6px #FF9F1C); }
+                50% { fill: #FFE5D9; filter: drop-shadow(0 0 2px #FFE5D9); }
             }
             .antenna-dot {
                 animation: antennaBlink 2s infinite;
             }
             
             @keyframes float {
-                0% { transform: translateY(0px); }
-                100% { transform: translateY(-5px); }
+                0% { transform: translateY(0px) rotate(0deg); }
+                100% { transform: translateY(-6px) rotate(1deg); }
             }
             .claudie {
-                animation: float 2s infinite alternate ease-in-out;
+                animation: float 2.5s infinite alternate ease-in-out;
             }
         </style>
     </defs>
@@ -65,67 +65,54 @@
     <g class="claudie" transform="translate(0, 10)">
         
         <!-- Antenna -->
-        <rect x="98" y="45" width="4" height="15" fill="#9CA3AF"/>
-        <circle cx="100" cy="42" r="6" class="antenna-dot"/>
+        <path d="M 100 45 Q 105 35 105 25" fill="none" stroke="#FFCDB2" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="105" cy="25" r="7" class="antenna-dot"/>
         
-        <!-- Hoodie / Body -->
-        <path d="M 60 140 C 60 70, 140 70, 140 140 L 140 160 C 140 170, 130 180, 100 180 C 70 180, 60 170, 60 160 Z" class="body-color"/>
-        <path d="M 120 140 C 120 90, 140 90, 140 140 L 140 160 C 140 170, 130 180, 100 180 C 115 160, 120 150, 120 140 Z" class="body-shadow"/>
+        <!-- Hoodie / Body (Squishy rounded shape) -->
+        <path d="M 50 140 C 40 60, 160 60, 150 140 C 150 170, 130 180, 100 180 C 70 180, 50 170, 50 140 Z" class="body-color"/>
+        <!-- Shadow -->
+        <path d="M 120 140 C 130 90, 150 100, 150 140 C 150 170, 130 180, 100 180 C 120 160, 120 150, 120 140 Z" class="body-shadow"/>
         
-        <!-- Face/Visor -->
-        <rect x="70" y="85" width="60" height="35" rx="15" fill="#050816" stroke="#8B5CF6" stroke-width="2"/>
+        <!-- Face/Visor area - softer and lighter -->
+        <rect x="65" y="85" width="70" height="40" rx="20" fill="#FFFBF5" stroke="#FFCDB2" stroke-width="2"/>
         
-        <!-- Eyes -->
-        <g class="eyes-group" transform="matrix(1 0 0 1 0 0)">
-            <ellipse cx="90" cy="102" rx="6" ry="8" class="eye"/>
-            <ellipse cx="110" cy="102" rx="6" ry="8" class="eye"/>
+        <!-- Eyes (Big, cute, expressive) -->
+        <g class="eyes-group">
+            <ellipse cx="85" cy="105" rx="7" ry="9" class="eye"/>
+            <ellipse cx="115" cy="105" rx="7" ry="9" class="eye"/>
+            <!-- Catchlights -->
+            <circle cx="82" cy="101" r="2.5" fill="#FFF"/>
+            <circle cx="112" cy="101" r="2.5" fill="#FFF"/>
         </g>
+        
+        <!-- Blush -->
+        <ellipse cx="72" cy="115" rx="5" ry="3" fill="#FF9F1C" opacity="0.4"/>
+        <ellipse cx="128" cy="115" rx="5" ry="3" fill="#FF9F1C" opacity="0.4"/>
         
         <!-- Left Arm/Hand -->
         <g class="typing-hand-left">
-            <path d="M 60 120 Q 40 140, 70 155" fill="none" stroke="#2563EB" stroke-width="12" stroke-linecap="round"/>
-            <circle cx="70" cy="155" r="8" class="accent"/>
+            <path d="M 55 125 Q 40 145, 75 160" fill="none" stroke="#FFCDB2" stroke-width="12" stroke-linecap="round"/>
+            <circle cx="75" cy="160" r="8" fill="#FFFBF5"/>
         </g>
         
         <!-- Right Arm/Hand -->
         <g class="typing-hand">
-            <path d="M 140 120 Q 160 140, 130 155" fill="none" stroke="#2563EB" stroke-width="12" stroke-linecap="round"/>
-            <circle cx="130" cy="155" r="8" class="accent"/>
+            <path d="M 145 125 Q 160 145, 125 160" fill="none" stroke="#FFCDB2" stroke-width="12" stroke-linecap="round"/>
+            <circle cx="125" cy="160" r="8" fill="#FFFBF5"/>
         </g>
         
-        <!-- Laptop -->
-        <g transform="translate(60, 145)">
-            <polygon points="10,25 70,25 80,45 0,45" fill="#111827"/>
-            <path d="M 15 25 L 10 5 L 70 5 L 65 25 Z" fill="#1F2937" stroke="#374151" stroke-width="1"/>
+        <!-- Bright Stylish Laptop -->
+        <g transform="translate(60, 150)">
+            <polygon points="10,25 70,25 80,45 0,45" fill="#2B2D42"/>
+            <path d="M 15 25 L 10 5 L 70 5 L 65 25 Z" fill="#3D405B" stroke="#2B2D42" stroke-width="1"/>
             
             <!-- Keyboard details -->
-            <line x1="15" y1="30" x2="65" y2="30" stroke="#374151" stroke-width="2" stroke-dasharray="2 2"/>
-            <line x1="12" y1="35" x2="68" y2="35" stroke="#374151" stroke-width="2" stroke-dasharray="3 2"/>
+            <line x1="15" y1="30" x2="65" y2="30" stroke="#8D99AE" stroke-width="2" stroke-dasharray="2 2"/>
             
             <!-- Screen Glow -->
             <polygon points="15,22 12,8 68,8 65,22" class="screen-glow screen-glow-anim"/>
-            <polygon points="0,45 20,-30 60,-30 80,45" class="screen-glow" opacity="0.1"/>
-            
-            <!-- Apple/Logo (Tech style) -->
-            <circle cx="40" cy="15" r="3" fill="#06B6D4" opacity="0.5"/>
-        </g>
-        
-        <!-- Coffee Mug -->
-        <g transform="translate(145, 155)">
-            <rect x="0" y="0" width="16" height="20" rx="3" fill="#EF4444"/>
-            <path d="M 16 4 Q 22 4, 22 10 Q 22 16, 16 16" fill="none" stroke="#EF4444" stroke-width="2"/>
-            <!-- Steam -->
-            <path d="M 4 -2 Q 6 -6, 4 -10" fill="none" stroke="#9CA3AF" stroke-width="1.5">
-                <animate attributeName="opacity" values="0; 1; 0" dur="2s" repeatCount="indefinite"/>
-                <animateTransform attributeName="transform" type="translate" values="0,0; 0,-5" dur="2s" repeatCount="indefinite"/>
-            </path>
-            <path d="M 10 -4 Q 12 -8, 10 -12" fill="none" stroke="#9CA3AF" stroke-width="1.5">
-                <animate attributeName="opacity" values="0; 1; 0" dur="2.5s" repeatCount="indefinite"/>
-                <animateTransform attributeName="transform" type="translate" values="0,0; 0,-5" dur="2.5s" repeatCount="indefinite"/>
-            </path>
+            <polygon points="0,45 20,-20 60,-20 80,45" class="screen-glow" opacity="0.1"/>
+            <circle cx="40" cy="15" r="3" fill="#00f4d2"/>
         </g>
     </g>
-    
-    <!-- Desk Shadow -->
-    <ellipse cx="100" cy="190" rx="60" ry="5" fill="#000" opacity="0.4"/>
 </svg>
