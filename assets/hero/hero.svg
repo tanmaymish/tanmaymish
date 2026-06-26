@@ -3,153 +3,172 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Inter:wght@400;600;700&amp;display=swap');
             
-            .sky { fill: #0B1021; }
-            .mount-back { fill: #131B2A; }
-            .mount-mid { fill: #1E293B; }
-            .mount-front { fill: #0F172A; }
-            .fog { fill: #2E4057; opacity: 0.3; }
+            .sky { fill: url(#skyGrad); }
+            .fuji-base { fill: #1D1E42; }
+            .fuji-snow { fill: #FCE7F3; }
+            .hills-back { fill: #311A42; }
+            .hills-front { fill: #1B0F2E; }
+            
+            .torii { fill: #E11D48; }
+            .torii-sh { fill: #9F1239; }
             
             .title {
                 font-family: 'Inter', sans-serif;
                 font-weight: 700;
                 font-size: 46px;
-                fill: #F1F5F9;
+                fill: #FFF;
                 letter-spacing: -1px;
+                filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
             }
             .subtitle {
                 font-family: 'Inter', sans-serif;
                 font-weight: 400;
                 font-size: 22px;
-                fill: #FFB067;
+                fill: #FBCFE8;
             }
             .typewriter {
                 font-family: 'JetBrains Mono', monospace;
                 font-size: 16px;
-                fill: #38BDF8;
+                fill: #60A5FA;
             }
             .cursor {
-                fill: #38BDF8;
+                fill: #60A5FA;
                 animation: blink 1s step-end infinite;
             }
             @keyframes blink { 50% { opacity: 0; } }
 
-            .star { fill: #FFF; opacity: 0; animation: twinkle 4s infinite alternate; }
-            @keyframes twinkle {
-                0% { opacity: 0.1; }
-                50% { opacity: 1; transform: scale(1.2); }
-                100% { opacity: 0.1; }
+            /* Sakura Animation */
+            .petal { fill: #FBCFE8; opacity: 0.8; animation: fall linear infinite; }
+            @keyframes fall {
+                from { transform: translate(100px, -50px) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.9; }
+                90% { opacity: 0.6; }
+                to { transform: translate(-300px, 450px) rotate(360deg); opacity: 0; }
             }
             
-            .cloud {
-                fill: #FFF;
-                opacity: 0.05;
-                animation: drift linear infinite;
+            /* Shooting Star */
+            .comet {
+                fill: url(#cometGrad);
+                animation: shoot 8s ease-in-out infinite;
+                transform-origin: center;
             }
-            @keyframes drift {
-                from { transform: translateX(850px); }
-                to { transform: translateX(-200px); }
+            @keyframes shoot {
+                0% { transform: translate(800px, -200px); opacity: 0; }
+                10% { opacity: 1; }
+                20% { transform: translate(-200px, 300px); opacity: 0; }
+                100% { transform: translate(-200px, 300px); opacity: 0; }
             }
             
             .box {
-                fill: rgba(15, 23, 42, 0.7);
-                stroke: rgba(255, 255, 255, 0.1);
+                fill: rgba(30, 20, 50, 0.5);
+                stroke: rgba(251, 207, 232, 0.2);
                 stroke-width: 1;
                 rx: 12;
-                backdrop-filter: blur(10px);
+                backdrop-filter: blur(8px);
             }
             
             .text-sm {
                 font-family: 'Inter', sans-serif;
                 font-weight: 600;
                 font-size: 12px;
-                fill: #94A3B8;
+                fill: #F472B6;
                 letter-spacing: 0.5px;
             }
             
             .text-sm-value {
                 font-family: 'JetBrains Mono', monospace;
                 font-size: 14px;
-                fill: #E2E8F0;
+                fill: #FDF2F8;
             }
         </style>
         
-        <!-- Gradient Moon -->
-        <radialGradient id="moonG" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#FFD166" />
-            <stop offset="100%" stop-color="#EF476F" stop-opacity="0" />
-        </radialGradient>
-        
-        <!-- Mist Gradient -->
-        <linearGradient id="mistG" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%" stop-color="#0F172A" />
-            <stop offset="100%" stop-color="#0F172A" stop-opacity="0" />
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#14082B" />
+            <stop offset="40%" stop-color="#4B1F68" />
+            <stop offset="80%" stop-color="#BD3A67" />
+            <stop offset="100%" stop-color="#F472B6" />
+        </linearGradient>
+
+        <linearGradient id="cometGrad" x1="1" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FFF" />
+            <stop offset="20%" stop-color="#93C5FD" />
+            <stop offset="100%" stop-color="#93C5FD" stop-opacity="0" />
         </linearGradient>
     </defs>
     
     <!-- Background Sky -->
     <rect width="800" height="400" class="sky" />
     
-    <!-- Stars -->
-    <g>
-        <circle cx="100" cy="50" r="1.5" class="star" style="animation-delay: 0s" />
-        <circle cx="250" cy="120" r="1" class="star" style="animation-delay: 1s" />
-        <circle cx="600" cy="80" r="2" class="star" style="animation-delay: 2s" />
-        <circle cx="720" cy="40" r="1.5" class="star" style="animation-delay: 0.5s" />
-        <circle cx="450" cy="30" r="1" class="star" style="animation-delay: 1.5s" />
-        <circle cx="50" cy="180" r="2" class="star" style="animation-delay: 2.5s" />
+    <!-- Deep Anime Giant Moon/Planet -->
+    <circle cx="550" cy="220" r="120" fill="#FFF" opacity="0.05" filter="drop-shadow(0 0 20px #FFF)"/>
+    <circle cx="550" cy="220" r="118" fill="#FCE7F3" opacity="0.1"/>
+
+    <!-- Shooting star / Comet -->
+    <g class="comet">
+        <path d="M 0 0 L 150 -100 Q 180 -120, 200 -130 L 100 -50 Z" />
+        <circle cx="0" cy="0" r="3" fill="#FFF" filter="drop-shadow(0 0 8px #FFF)"/>
     </g>
 
-    <!-- Moon/Sun -->
-    <circle cx="680" cy="150" r="80" fill="url(#moonG)" opacity="0.6"/>
-    <circle cx="680" cy="150" r="30" fill="#FFD166" filter="drop-shadow(0 0 10px #FFD166)"/>
+    <!-- Mount Fuji Silhouette -->
+    <path d="M 100 400 Q 400 120, 500 120 Q 600 120, 900 400 Z" class="fuji-base" />
+    <!-- Snow Cap -->
+    <path d="M 410 230 Q 450 120, 500 120 Q 550 120, 590 230 Q 560 210, 540 240 Q 510 200, 480 250 Q 450 220, 410 230 Z" class="fuji-snow" />
 
-    <!-- Drifting Clouds -->
-    <path d="M 0 0 Q 30 -20 60 0 Q 90 -10 120 10 Q 80 20 0 0 Z" class="cloud" style="animation-duration: 40s; animation-delay: -10s; transform: scale(1.5) translateY(50px);" />
-    <path d="M 0 0 Q 40 -30 80 0 Q 120 -20 160 10 Q 100 30 0 0 Z" class="cloud" style="animation-duration: 60s; animation-delay: -30s; transform: scale(2) translateY(120px);" />
-    <path d="M 0 0 Q 25 -15 50 0 Q 75 -10 100 5 Q 50 15 0 0 Z" class="cloud" style="animation-duration: 45s; transform: scale(1.2) translateY(200px);" />
+    <!-- Distant Hills -->
+    <path d="M -50 400 Q 150 250, 300 400 Z" class="hills-back" />
+    <path d="M 600 400 Q 750 280, 850 400 Z" class="hills-back" />
+    
+    <!-- Foreground Shadow Layer for text legibility -->
+    <rect width="800" height="400" fill="#14082B" opacity="0.3"/>
 
-    <!-- Mountain Layers -->
-    <!-- Back -->
-    <path d="M 0 250 L 150 120 L 300 230 L 450 140 L 600 250 L 800 100 L 800 400 L 0 400 Z" class="mount-back" />
-    <!-- Mist -->
-    <rect width="800" height="250" y="150" fill="url(#mistG)" opacity="0.5"/>
-    
-    <!-- Mid -->
-    <path d="M 0 280 L 100 200 L 250 310 L 400 180 L 550 260 L 700 160 L 800 230 L 800 400 L 0 400 Z" class="mount-mid" />
-    
-    <!-- Front -->
-    <path d="M 0 350 L 200 220 L 380 340 L 580 200 L 750 320 L 800 280 L 800 400 L 0 400 Z" class="mount-front" />
-    
-    <!-- Dark Foreqround Base overlay to make text pop -->
-    <rect width="800" height="400" fill="#0B1021" opacity="0.5"/>
+    <!-- Sakura Animation System -->
+    <g>
+        <path d="M 0 0 C 10 -5, 10 5, 0 10 C -10 5, -10 -5, 0 0" class="petal" style="animation-duration: 8s; animation-delay: 0s; transform-origin: center;" />
+        <path d="M 200 -50 C 210 -55, 210 -45, 200 -40 C 190 -45, 190 -55, 200 -50" class="petal" style="animation-duration: 12s; animation-delay: 2s;" />
+        <path d="M 400 -20 C 415 -25, 415 -15, 400 -10 C 385 -15, 385 -25, 400 -20" class="petal" style="animation-duration: 9s; animation-delay: 1s; opacity: 0.6; scale: 0.6" />
+        <path d="M 600 -80 C 608 -83, 608 -77, 600 -74 C 592 -77, 592 -83, 600 -80" class="petal" style="animation-duration: 10s; animation-delay: 4s; scale: 1.2" />
+        <path d="M 750 -10 C 765 -15, 765 -5, 750 0 C 735 -5, 735 -15, 750 -10" class="petal" style="animation-duration: 14s; animation-delay: 0.5s;" />
+        <path d="M 900 100 C 910 95, 910 105, 900 110 C 890 105, 890 95, 900 100" class="petal" style="animation-duration: 11s; animation-delay: 3s;" />
+        <path d="M 300 -100 C 310 -105, 310 -95, 300 -90 C 290 -95, 290 -105, 300 -100" class="petal" style="animation-duration: 7s; animation-delay: 5s;" />
+    </g>
+
+    <!-- Torii Gate in Foreground -->
+    <g transform="translate(680, 280) scale(0.6)">
+        <rect x="0" y="30" width="10" height="100" class="torii"/>
+        <rect x="90" y="30" width="10" height="100" class="torii"/>
+        <!-- Top beams -->
+        <rect x="-10" y="20" width="120" height="12" rx="3" class="torii"/>
+        <path d="M -15 20 Q 50 15, 115 20 L 115 10 Q 50 0, -15 10 Z" class="torii-sh"/>
+        <rect x="5" y="45" width="90" height="10" class="torii"/>
+        <!-- Plaque -->
+        <rect x="42" y="25" width="16" height="25" class="hills-front"/>
+    </g>
 
     <!-- Content Container -->
     <g transform="translate(60, 90)">
         <text y="0" class="title">Tanmay Mishra</text>
-        <text y="35" class="subtitle">Software Engineer &amp; Traveler</text>
+        <text y="35" class="subtitle">Software Engineer &amp; Dreamer</text>
         
-        <!-- Interactive Terminal-like typing, styled for nature -->
         <g transform="translate(0, 75)">
-            <rect width="360" height="44" rx="8" fill="rgba(15, 23, 42, 0.4)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-            <text x="15" y="27" class="typewriter">> <tspan fill="#F1F5F9">Engineer graceful recovery.</tspan></text>
-            <rect x="250" y="13" width="9" height="18" class="cursor" />
+            <rect width="360" height="44" rx="8" fill="rgba(20, 8, 43, 0.4)" stroke="rgba(251,207,232,0.2)" stroke-width="1"/>
+            <text x="15" y="27" class="typewriter">> <tspan fill="#FDF2F8">System initialization... 咲く</tspan></text>
+            <rect x="290" y="13" width="9" height="18" class="cursor" />
         </g>
         
         <!-- Status Boxes -->
         <g transform="translate(0, 150)">
             <rect x="0" y="0" width="160" height="80" class="box"/>
-            <circle cx="20" cy="25" r="4" fill="#10B981" filter="drop-shadow(0 0 3px #10B981)"/>
-            <text x="35" y="30" class="text-sm">SYSTEM STATUS</text>
-            <text x="15" y="60" class="text-sm-value" fill="#34D399">ONLINE</text>
+            <circle cx="20" cy="25" r="4" fill="#38BDF8" filter="drop-shadow(0 0 3px #38BDF8)"/>
+            <text x="35" y="30" class="text-sm">STATUS</text>
+            <text x="15" y="60" class="text-sm-value" fill="#60A5FA">ONLINE</text>
             
             <rect x="180" y="0" width="160" height="80" class="box"/>
-            <text x="195" y="30" class="text-sm">CURRENT TRAIL</text>
-            <text x="195" y="60" class="text-sm-value" fill="#FFB067">HUNTERMIND</text>
+            <text x="195" y="30" class="text-sm">CURRENT FOCUS</text>
+            <text x="195" y="60" class="text-sm-value" fill="#F472B6">HUNTERMIND</text>
             
             <rect x="360" y="0" width="160" height="80" class="box"/>
             <text x="375" y="30" class="text-sm">AVAILABILITY</text>
-            <text x="375" y="60" class="text-sm-value" fill="#38BDF8">EXPLORING ROLES</text>
+            <text x="375" y="60" class="text-sm-value" fill="#FBCFE8">OPEN TO ROLES</text>
         </g>
     </g>
-
 </svg>

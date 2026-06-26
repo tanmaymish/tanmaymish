@@ -3,13 +3,13 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono&amp;display=swap');
             
-            .bg { fill: #0B1021; }
-            .hill-1 { fill: #1E293B; }
-            .hill-2 { fill: #0F172A; }
+            .bg { fill: #14082B; }
+            .hill-1 { fill: #311A42; }
+            .hill-2 { fill: #1F0D36; }
             
-            .quote { font-family: 'Inter', sans-serif; font-weight: 400; font-style: italic; font-size: 16px; fill: #94A3B8; text-anchor: middle; }
-            .author { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; fill: #FFB067; text-anchor: middle; }
-            .links { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #38BDF8; text-anchor: middle; }
+            .quote { font-family: 'Inter', sans-serif; font-weight: 400; font-style: italic; font-size: 16px; fill: #FBCFE8; text-anchor: middle; filter: drop-shadow(0 0 2px rgba(251, 207, 232, 0.4));}
+            .author { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; fill: #F472B6; text-anchor: middle; }
+            .links { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #60A5FA; text-anchor: middle; }
             
             @keyframes panHills { 
                 0% { transform: translateX(0); }
@@ -17,6 +17,15 @@
             }
             .anim-hills-slow { animation: panHills 20s linear infinite; }
             .anim-hills-fast { animation: panHills 12s linear infinite reverse; }
+
+            /* Sakura Animation */
+            .petal { fill: #FBCFE8; opacity: 0.8; animation: fall linear infinite; }
+            @keyframes fall {
+                from { transform: translate(100px, -50px) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.9; }
+                90% { opacity: 0.6; }
+                to { transform: translate(-300px, 450px) rotate(360deg); opacity: 0; }
+            }
         </style>
     </defs>
     
@@ -32,10 +41,18 @@
         </g>
     </g>
 
-    <text x="400" y="40" class="quote">"Build systems. Not features. Peak by peak."</text>
+    <!-- Sakura Petals -->
+    <g>
+        <path d="M 100 0 C 110 -5, 110 5, 100 10 C 90 5, 90 -5, 100 0" class="petal" style="animation-duration: 8s; animation-delay: 0s;" />
+        <path d="M 300 -50 C 310 -55, 310 -45, 300 -40 C 290 -45, 290 -55, 300 -50" class="petal" style="animation-duration: 12s; animation-delay: 2s; scale: 0.8;" />
+        <path d="M 500 -20 C 515 -25, 515 -15, 500 -10 C 485 -15, 485 -25, 500 -20" class="petal" style="animation-duration: 9s; animation-delay: 1s;" />
+        <path d="M 700 -80 C 708 -83, 708 -77, 700 -74 C 692 -77, 692 -83, 700 -80" class="petal" style="animation-duration: 10s; animation-delay: 4s; scale: 1.2" />
+    </g>
+
+    <text x="400" y="40" class="quote">"Build systems. Not features. Dream beautifully."</text>
     <text x="400" y="65" class="author">— Engineering Philosophy</text>
     
     <text x="400" y="150" class="links">GITHUB • LINKEDIN • EMAIL</text>
-    <text x="400" y="170" class="links" fill="#64748B" font-size="11">BASECAMP SECURED.</text>
+    <text x="400" y="170" class="links" fill="#7E22CE" font-size="11">SYSTEM RESTING.</text>
 
 </svg>
