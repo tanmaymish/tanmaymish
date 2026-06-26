@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+    <defs>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Inter:wght@400;600;700&amp;display=swap');
+            
+            .bg { fill: #050816; }
+            .grid { 
+                stroke: rgba(59, 130, 246, 0.15); 
+                stroke-width: 1; 
+                fill: none;
+            }
+            .grid-moving {
+                animation: panGrid 15s linear infinite;
+            }
+            @keyframes panGrid {
+                0% { transform: translateY(0); }
+                100% { transform: translateY(40px); }
+            }
+            
+            .title {
+                font-family: 'Inter', sans-serif;
+                font-weight: 700;
+                font-size: 42px;
+                fill: #ffffff;
+                letter-spacing: -0.5px;
+            }
+            
+            .subtitle {
+                font-family: 'Inter', sans-serif;
+                font-weight: 400;
+                font-size: 20px;
+                fill: #8B5CF6;
+            }
+            
+            .typewriter {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 16px;
+                fill: #06B6D4;
+            }
+
+            .cursor {
+                fill: #06B6D4;
+                animation: blink 1s step-end infinite;
+            }
+            @keyframes blink { 50% { opacity: 0; } }
+            
+            .particle {
+                fill: #3B82F6;
+                opacity: 0.6;
+            }
+            
+            .glow {
+                filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8));
+            }
+            
+            .indicator {
+                fill: #22C55E;
+                animation: pulse 2s infinite;
+            }
+            @keyframes pulse {
+                0% { fill: #22C55E; filter: drop-shadow(0 0 2px #22C55E); }
+                50% { fill: #166534; filter: drop-shadow(0 0 8px #22C55E); }
+                100% { fill: #22C55E; filter: drop-shadow(0 0 2px #22C55E); }
+            }
+
+            .box {
+                fill: #0B1220;
+                stroke: #111827;
+                stroke-width: 2;
+                rx: 8;
+            }
+            
+            .text-sm {
+                font-family: 'Inter', sans-serif;
+                font-size: 13px;
+                fill: #9CA3AF;
+            }
+            
+            .text-sm-value {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 13px;
+                fill: #E5E7EB;
+            }
+            
+            /* Typing animation */
+            .typing-text {
+                display: inline-block;
+                width: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                border-right: 2px solid #06B6D4;
+                animation: typing 4s steps(40) infinite alternate, cursorBlink .75s step-end infinite;
+            }
+            
+            @keyframes typing {
+                0%, 10% { width: 0; }
+                90%, 100% { width: 330px; }
+            }
+
+        </style>
+        
+        <pattern id="smallGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="grid" />
+        </pattern>
+        
+        <linearGradient id="fade" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#050816" stop-opacity="1"/>
+            <stop offset="20%" stop-color="#050816" stop-opacity="0.8"/>
+            <stop offset="80%" stop-color="#050816" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="800" height="400" class="bg" />
+    
+    <!-- Animated Grid -->
+    <g class="grid-moving">
+        <rect width="800" height="440" y="-40" fill="url(#smallGrid)" />
+    </g>
+    
+    <!-- Fade Overlays to smooth edges -->
+    <rect width="800" height="400" fill="url(#fade)" />
+    
+    <!-- Particles -->
+    <g>
+        <circle cx="150" cy="80" r="1.5" class="particle glow">
+            <animate attributeName="cy" values="80; 60; 80" dur="4s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.2; 0.8; 0.2" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="650" cy="120" r="2" class="particle glow">
+            <animate attributeName="cy" values="120; 100; 120" dur="5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.3; 1; 0.3" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="700" cy="300" r="1" class="particle glow">
+            <animate attributeName="cy" values="300; 330; 300" dur="6s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="100" cy="320" r="2.5" class="particle glow">
+             <animate attributeName="cx" values="100; 120; 100" dur="7s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="450" cy="50" r="1.5" class="particle glow">
+             <animate attributeName="opacity" values="0.1; 0.7; 0.1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+    </g>
+    
+    <!-- Content Container -->
+    <g transform="translate(60, 90)">
+        <text y="0" class="title">Tanmay Mishra</text>
+        <text y="35" class="subtitle">Software Engineer &amp; Cybersecurity</text>
+        
+        <!-- Interactive Terminal-like typing -->
+        <g transform="translate(0, 75)">
+            <rect width="360" height="40" rx="4" fill="#0B1220" stroke="#111827" stroke-width="2"/>
+            <text x="15" y="25" class="typewriter">$ <tspan fill="#E5E7EB">Engineer graceful recovery.</tspan></text>
+            <!-- Cursor block for manual anim -->
+            <rect x="250" y="11" width="8" height="18" class="cursor" />
+        </g>
+        
+        <!-- Status Boxes -->
+        <g transform="translate(0, 150)">
+            <rect x="0" y="0" width="160" height="80" class="box"/>
+            <circle cx="20" cy="25" r="4" class="indicator"/>
+            <text x="35" y="30" class="text-sm">SYSTEM STATUS</text>
+            <text x="15" y="60" class="text-sm-value" fill="#22C55E">ONLINE</text>
+            
+            <rect x="180" y="0" width="160" height="80" class="box"/>
+            <text x="195" y="30" class="text-sm">CURRENT MISSION</text>
+            <text x="195" y="60" class="text-sm-value" fill="#8B5CF6">HUNTERMIND</text>
+            
+            <rect x="360" y="0" width="160" height="80" class="box"/>
+            <text x="375" y="30" class="text-sm">AVAILABILITY</text>
+            <text x="375" y="60" class="text-sm-value">OPEN TO ROLES</text>
+        </g>
+    </g>
+
+    <!-- Side Graphic -->
+    <g transform="translate(560, 70)">
+        <!-- Abstract Tech Rings -->
+        <circle cx="100" cy="100" r="80" fill="none" stroke="#111827" stroke-width="1"/>
+        <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(6, 182, 212, 0.4)" stroke-width="2" stroke-dasharray="8 4">
+            <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="20s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="100" cy="100" r="40" fill="none" stroke="rgba(139, 92, 246, 0.6)" stroke-width="3" stroke-dasharray="15 10 5 10">
+            <animateTransform attributeName="transform" type="rotate" from="360 100 100" to="0 100 100" dur="15s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Glowing Core -->
+        <circle cx="100" cy="100" r="15" fill="#06B6D4">
+             <animate attributeName="r" values="15; 18; 15" dur="3s" repeatCount="indefinite"/>
+             <animate attributeName="opacity" values="0.8; 1; 0.8" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="100" cy="100" r="25" fill="none" stroke="#3B82F6" stroke-width="1" class="glow">
+             <animate attributeName="r" values="20; 35; 20" dur="2s" repeatCount="indefinite"/>
+             <animate attributeName="opacity" values="0.8; 0; 0.8" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Tech Lines -->
+        <path d="M 0 100 L 40 100" stroke="#3B82F6" stroke-width="2" opacity="0.6"/>
+        <path d="M 160 100 L 200 100" stroke="#3B82F6" stroke-width="2" opacity="0.6"/>
+        <path d="M 100 0 L 100 40" stroke="#3B82F6" stroke-width="2" opacity="0.6"/>
+        <path d="M 100 160 L 100 200" stroke="#3B82F6" stroke-width="2" opacity="0.6"/>
+    </g>
+
+</svg>

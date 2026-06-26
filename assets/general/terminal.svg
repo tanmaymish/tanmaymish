@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="350" viewBox="0 0 800 350">
+    <defs>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap');
+            
+            .bg { fill: #0B1220; stroke: #111827; stroke-width: 2; rx: 8; }
+            .topbar { fill: #111827; }
+            
+            .text {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 14px;
+                fill: #E5E7EB;
+            }
+            .prompt { fill: #22C55E; font-weight: 700; }
+            .path { fill: #3B82F6; font-weight: 700; }
+            .highlight { fill: #8B5CF6; }
+            .cyan { fill: #06B6D4; }
+            .yellow { fill: #F59E0B; }
+            
+            .cursor {
+                fill: #E5E7EB;
+                animation: blink 1s step-end infinite;
+            }
+            @keyframes blink { 50% { opacity: 0; } }
+
+            @keyframes type1 { 
+                0%, 10% { opacity: 0; }
+                11%, 100% { opacity: 1; }
+            }
+            .line1 { opacity: 1; }
+            .wait1 { animation: showText 0s 1s forwards; opacity: 0; }
+            .line2 { animation: showText 0s 2s forwards; opacity: 0; }
+            
+            @keyframes showText { to { opacity: 1; } }
+
+        </style>
+    </defs>
+    
+    <!-- Window Body -->
+    <rect width="796" height="346" x="2" y="2" class="bg" />
+    
+    <!-- Top Bar -->
+    <path d="M 2 10 Q 2 2, 10 2 L 790 2 Q 798 2, 798 10 L 798 30 L 2 30 Z" class="topbar"/>
+    <circle cx="20" cy="16" r="6" fill="#EF4444" />
+    <circle cx="40" cy="16" r="6" fill="#F59E0B" />
+    <circle cx="60" cy="16" r="6" fill="#22C55E" />
+    <text x="400" y="20" font-family="'JetBrains Mono', monospace" font-size="12" fill="#9CA3AF" text-anchor="middle">admin@tanmay-mc:~</text>
+    
+    <!-- Terminal Content -->
+    <g transform="translate(20, 60)">
+        
+        <!-- Line 1 -->
+        <g class="line1">
+            <text y="0" class="text">
+                <tspan class="prompt">admin@tanmay-mc</tspan>:<tspan class="path">~</tspan>$ whoami
+            </text>
+        </g>
+        
+        <!-- Output 1 -->
+        <g transform="translate(0, 30)">
+            <text y="0" class="text">
+                <tspan class="cyan">Name:</tspan> Tanmay Mishra
+            </text>
+            <text y="25" class="text">
+                <tspan class="cyan">Role:</tspan> Software Engineer | Cybersecurity Researcher
+            </text>
+            <text y="50" class="text">
+                <tspan class="cyan">Focus:</tspan> Distributed Systems, Web Security, System Architecture
+            </text>
+            <text y="75" class="text">
+                <tspan class="cyan">Status:</tspan> <tspan class="prompt">Building HunterMind</tspan>
+            </text>
+        </g>
+        
+        <!-- Line 2 -->
+        <g transform="translate(0, 140)">
+            <text y="0" class="text">
+                <tspan class="prompt">admin@tanmay-mc</tspan>:<tspan class="path">~</tspan>$ cat /etc/skills.conf
+            </text>
+        </g>
+
+        <!-- Output 2 -->
+        <g transform="translate(0, 170)">
+            <text y="0" class="text highlight" font-weight="700">[LANGUAGES]</text>
+            <text y="20" class="text">Python, JavaScript, C++, C#, Java, Go</text>
+            
+            <text y="50" class="text highlight" font-weight="700">[TECH]</text>
+            <text y="70" class="text">Spring Boot, React, Kafka, Redis, Docker, PostgreSQL</text>
+
+            <text y="100" class="text highlight" font-weight="700">[SECURITY]</text>
+            <text y="120" class="text">OSINT, Web App Sec, DevSecOps, Threat Modeling</text>
+        </g>
+
+        <!-- Line 3/Cursor -->
+        <g transform="translate(0, 260)">
+            <text y="0" class="text">
+                <tspan class="prompt">admin@tanmay-mc</tspan>:<tspan class="path">~</tspan>$ _
+            </text>
+            <rect x="155" y="-12" width="8" height="15" class="cursor"/>
+        </g>
+    </g>
+
+    <!-- Mascot sleeping inside terminal -->
+    <!-- Just drawing a tiny zzz -->
+    <g transform="translate(720, 300)">
+        <text class="text highlight">z</text>
+        <text class="text highlight" x="6" y="-10">z</text>
+        <text class="text highlight" x="14" y="-20">Z</text>
+    </g>
+</svg>
