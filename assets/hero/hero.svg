@@ -1,174 +1,159 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400" viewBox="0 0 900 400">
     <defs>
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Inter:wght@400;600;700&amp;display=swap');
-            
-            .sky { fill: url(#skyGrad); }
-            .fuji-base { fill: #1D1E42; }
-            .fuji-snow { fill: #FCE7F3; }
-            .hills-back { fill: #311A42; }
-            .hills-front { fill: #1B0F2E; }
-            
-            .torii { fill: #E11D48; }
-            .torii-sh { fill: #9F1239; }
-            
-            .title {
-                font-family: 'Inter', sans-serif;
-                font-weight: 700;
-                font-size: 46px;
-                fill: #FFF;
-                letter-spacing: -1px;
-                filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
-            }
-            .subtitle {
-                font-family: 'Inter', sans-serif;
-                font-weight: 400;
-                font-size: 22px;
-                fill: #FBCFE8;
-            }
-            .typewriter {
-                font-family: 'JetBrains Mono', monospace;
-                font-size: 16px;
-                fill: #60A5FA;
-            }
-            .cursor {
-                fill: #60A5FA;
-                animation: blink 1s step-end infinite;
-            }
-            @keyframes blink { 50% { opacity: 0; } }
+        <!-- The Anime Twilight Sky Gradient -->
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0E0720" />
+            <stop offset="25%" stop-color="#210F40" />
+            <stop offset="50%" stop-color="#5B205D" />
+            <stop offset="75%" stop-color="#9C2A6B" />
+            <stop offset="100%" stop-color="#E1557A" />
+        </linearGradient>
 
-            /* Sakura Animation */
+        <linearGradient id="cometGrad" x1="1" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FFF" />
+            <stop offset="30%" stop-color="#93C5FD" />
+            <stop offset="100%" stop-color="#93C5FD" stop-opacity="0" />
+        </linearGradient>
+
+        <!-- Fuji Mountains Gradients -->
+        <linearGradient id="fujiBack" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#3C1A4A" />
+            <stop offset="100%" stop-color="#140624" />
+        </linearGradient>
+        <linearGradient id="fujiFront" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#280C34" />
+            <stop offset="100%" stop-color="#080312" />
+        </linearGradient>
+        
+        <linearGradient id="snowGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FCE7F3" />
+            <stop offset="100%" stop-color="#F472B6" />
+        </linearGradient>
+        
+        <!-- Glowing Moon Gradient -->
+        <radialGradient id="moonG" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFF" />
+            <stop offset="30%" stop-color="#FDF2F8" />
+            <stop offset="100%" stop-color="#E879F9" stop-opacity="0" />
+        </radialGradient>
+
+        <!-- Dynamic Mist Layer -->
+        <linearGradient id="mistGrad" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#5B205D" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#9C2A6B" stop-opacity="0"/>
+        </linearGradient>
+
+        <style>
+            .star { fill: #FFF; animation: twinkle 4s infinite alternate; }
+            @keyframes twinkle {
+                0% { opacity: 0.1; }
+                50% { opacity: 1; transform: scale(1.2); }
+                100% { opacity: 0.1; }
+            }
+            
             .petal { fill: #FBCFE8; opacity: 0.8; animation: fall linear infinite; }
             @keyframes fall {
-                from { transform: translate(100px, -50px) rotate(0deg); opacity: 0; }
+                from { transform: translate(200px, -50px) rotate(0deg); opacity: 0; }
                 10% { opacity: 0.9; }
                 90% { opacity: 0.6; }
-                to { transform: translate(-300px, 450px) rotate(360deg); opacity: 0; }
+                to { transform: translate(-400px, 450px) rotate(360deg); opacity: 0; }
             }
             
-            /* Shooting Star */
             .comet {
                 fill: url(#cometGrad);
                 animation: shoot 8s ease-in-out infinite;
                 transform-origin: center;
             }
             @keyframes shoot {
-                0% { transform: translate(800px, -200px); opacity: 0; }
+                0% { transform: translate(900px, -200px); opacity: 0; }
                 10% { opacity: 1; }
-                20% { transform: translate(-200px, 300px); opacity: 0; }
-                100% { transform: translate(-200px, 300px); opacity: 0; }
+                20% { transform: translate(-300px, 400px); opacity: 0; }
+                100% { transform: translate(-300px, 400px); opacity: 0; }
             }
-            
-            .box {
-                fill: rgba(30, 20, 50, 0.5);
-                stroke: rgba(251, 207, 232, 0.2);
-                stroke-width: 1;
-                rx: 12;
-                backdrop-filter: blur(8px);
+
+            .mist {
+                animation: flow 30s linear infinite alternate;
             }
-            
-            .text-sm {
-                font-family: 'Inter', sans-serif;
-                font-weight: 600;
-                font-size: 12px;
-                fill: #F472B6;
-                letter-spacing: 0.5px;
-            }
-            
-            .text-sm-value {
-                font-family: 'JetBrains Mono', monospace;
-                font-size: 14px;
-                fill: #FDF2F8;
+            @keyframes flow {
+                0% { transform: translateX(0px); }
+                100% { transform: translateX(-100px); }
             }
         </style>
-        
-        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#14082B" />
-            <stop offset="40%" stop-color="#4B1F68" />
-            <stop offset="80%" stop-color="#BD3A67" />
-            <stop offset="100%" stop-color="#F472B6" />
-        </linearGradient>
-
-        <linearGradient id="cometGrad" x1="1" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#FFF" />
-            <stop offset="20%" stop-color="#93C5FD" />
-            <stop offset="100%" stop-color="#93C5FD" stop-opacity="0" />
-        </linearGradient>
     </defs>
     
-    <!-- Background Sky -->
-    <rect width="800" height="400" class="sky" />
+    <!-- 1. Sky Background -->
+    <rect width="900" height="400" fill="url(#skyGrad)" />
     
-    <!-- Deep Anime Giant Moon/Planet -->
-    <circle cx="550" cy="220" r="120" fill="#FFF" opacity="0.05" filter="drop-shadow(0 0 20px #FFF)"/>
-    <circle cx="550" cy="220" r="118" fill="#FCE7F3" opacity="0.1"/>
-
-    <!-- Shooting star / Comet -->
-    <g class="comet">
-        <path d="M 0 0 L 150 -100 Q 180 -120, 200 -130 L 100 -50 Z" />
-        <circle cx="0" cy="0" r="3" fill="#FFF" filter="drop-shadow(0 0 8px #FFF)"/>
-    </g>
-
-    <!-- Mount Fuji Silhouette -->
-    <path d="M 100 400 Q 400 120, 500 120 Q 600 120, 900 400 Z" class="fuji-base" />
-    <!-- Snow Cap -->
-    <path d="M 410 230 Q 450 120, 500 120 Q 550 120, 590 230 Q 560 210, 540 240 Q 510 200, 480 250 Q 450 220, 410 230 Z" class="fuji-snow" />
-
-    <!-- Distant Hills -->
-    <path d="M -50 400 Q 150 250, 300 400 Z" class="hills-back" />
-    <path d="M 600 400 Q 750 280, 850 400 Z" class="hills-back" />
-    
-    <!-- Foreground Shadow Layer for text legibility -->
-    <rect width="800" height="400" fill="#14082B" opacity="0.3"/>
-
-    <!-- Sakura Animation System -->
+    <!-- 2. Magical Anime Stars -->
     <g>
-        <path d="M 0 0 C 10 -5, 10 5, 0 10 C -10 5, -10 -5, 0 0" class="petal" style="animation-duration: 8s; animation-delay: 0s; transform-origin: center;" />
-        <path d="M 200 -50 C 210 -55, 210 -45, 200 -40 C 190 -45, 190 -55, 200 -50" class="petal" style="animation-duration: 12s; animation-delay: 2s;" />
-        <path d="M 400 -20 C 415 -25, 415 -15, 400 -10 C 385 -15, 385 -25, 400 -20" class="petal" style="animation-duration: 9s; animation-delay: 1s; opacity: 0.6; scale: 0.6" />
-        <path d="M 600 -80 C 608 -83, 608 -77, 600 -74 C 592 -77, 592 -83, 600 -80" class="petal" style="animation-duration: 10s; animation-delay: 4s; scale: 1.2" />
-        <path d="M 750 -10 C 765 -15, 765 -5, 750 0 C 735 -5, 735 -15, 750 -10" class="petal" style="animation-duration: 14s; animation-delay: 0.5s;" />
-        <path d="M 900 100 C 910 95, 910 105, 900 110 C 890 105, 890 95, 900 100" class="petal" style="animation-duration: 11s; animation-delay: 3s;" />
-        <path d="M 300 -100 C 310 -105, 310 -95, 300 -90 C 290 -95, 290 -105, 300 -100" class="petal" style="animation-duration: 7s; animation-delay: 5s;" />
+        <circle cx="100" cy="50" r="1.5" class="star" style="animation-delay: 0s" />
+        <circle cx="300" cy="90" r="2" class="star" style="animation-delay: 1s" />
+        <circle cx="650" cy="40" r="2.5" class="star" style="animation-delay: 0.5s" />
+        <circle cx="800" cy="120" r="1" class="star" style="animation-delay: 2s" />
+        <circle cx="450" cy="80" r="1.5" class="star" style="animation-delay: 1.5s" />
+        <circle cx="150" cy="180" r="2" class="star" style="animation-delay: 2.5s" />
     </g>
 
-    <!-- Torii Gate in Foreground -->
-    <g transform="translate(680, 280) scale(0.6)">
-        <rect x="0" y="30" width="10" height="100" class="torii"/>
-        <rect x="90" y="30" width="10" height="100" class="torii"/>
-        <!-- Top beams -->
-        <rect x="-10" y="20" width="120" height="12" rx="3" class="torii"/>
-        <path d="M -15 20 Q 50 15, 115 20 L 115 10 Q 50 0, -15 10 Z" class="torii-sh"/>
-        <rect x="5" y="45" width="90" height="10" class="torii"/>
-        <!-- Plaque -->
-        <rect x="42" y="25" width="16" height="25" class="hills-front"/>
+    <!-- 3. Giant Glowing Moon -->
+    <circle cx="650" cy="200" r="180" fill="url(#moonG)" opacity="0.3"/>
+    <circle cx="650" cy="200" r="140" fill="url(#moonG)" opacity="0.5"/>
+    <circle cx="650" cy="200" r="40" fill="#FFF" filter="drop-shadow(0 0 15px #FFF)"/>
+
+    <!-- 4. Comet / Shooting Star -->
+    <g class="comet">
+        <path d="M 0 0 L 200 -120 Q 230 -140, 250 -150 L 150 -60 Z" />
+        <circle cx="0" cy="0" r="4" fill="#FFF" filter="drop-shadow(0 0 10px #FFF)"/>
     </g>
 
-    <!-- Content Container -->
-    <g transform="translate(60, 90)">
-        <text y="0" class="title">Tanmay Mishra</text>
-        <text y="35" class="subtitle">Software Engineer &amp; Dreamer</text>
-        
-        <g transform="translate(0, 75)">
-            <rect width="360" height="44" rx="8" fill="rgba(20, 8, 43, 0.4)" stroke="rgba(251,207,232,0.2)" stroke-width="1"/>
-            <text x="15" y="27" class="typewriter">> <tspan fill="#FDF2F8">System initialization... 咲く</tspan></text>
-            <rect x="290" y="13" width="9" height="18" class="cursor" />
-        </g>
-        
-        <!-- Status Boxes -->
-        <g transform="translate(0, 150)">
-            <rect x="0" y="0" width="160" height="80" class="box"/>
-            <circle cx="20" cy="25" r="4" fill="#38BDF8" filter="drop-shadow(0 0 3px #38BDF8)"/>
-            <text x="35" y="30" class="text-sm">STATUS</text>
-            <text x="15" y="60" class="text-sm-value" fill="#60A5FA">ONLINE</text>
-            
-            <rect x="180" y="0" width="160" height="80" class="box"/>
-            <text x="195" y="30" class="text-sm">CURRENT FOCUS</text>
-            <text x="195" y="60" class="text-sm-value" fill="#F472B6">HUNTERMIND</text>
-            
-            <rect x="360" y="0" width="160" height="80" class="box"/>
-            <text x="375" y="30" class="text-sm">AVAILABILITY</text>
-            <text x="375" y="60" class="text-sm-value" fill="#FBCFE8">OPEN TO ROLES</text>
-        </g>
+    <!-- 5. Distant Mountain Range (Left) -->
+    <path d="M -100 400 Q 150 180, 400 400 Z" fill="url(#fujiBack)" opacity="0.8"/>
+    <!-- Distant Mountain Range (Right) -->
+    <path d="M 500 400 Q 750 220, 1000 400 Z" fill="url(#fujiBack)" opacity="0.8"/>
+
+    <!-- 6. Mount Fuji Profile -->
+    <path d="M 120 400 Q 450 80, 450 80 Q 780 400, 780 400 Z" fill="url(#fujiFront)" />
+    
+    <!-- 7. Fuji Snow Cap (Stylized layers) -->
+    <path d="M 390 153 Q 450 80, 450 80 Q 510 153, 510 153 Q 480 135, 465 170 Q 450 145, 440 180 Q 425 145, 390 153 Z" fill="url(#snowGrad)" />
+    <path d="M 370 178 Q 450 80, 450 80 Q 530 178, 530 178 Q 500 160, 490 195 Q 470 160, 450 185 Q 430 160, 400 195 Q 390 160, 370 178 Z" fill="url(#snowGrad)" opacity="0.5" />
+
+    <!-- 8. Dynamic Mist Layer overlaying mountains -->
+    <g class="mist">
+        <rect width="1200" height="150" x="-100" y="250" fill="url(#mistGrad)" />
+        <path d="M -100 350 Q 200 250, 500 350 T 1100 350 L 1100 400 L -100 400 Z" fill="#9C2A6B" opacity="0.2"/>
+        <path d="M 0 380 Q 300 300, 600 380 T 1200 380 L 1200 400 L 0 400 Z" fill="#5B205D" opacity="0.4"/>
     </g>
+
+    <!-- 9. Vibrant Torii Gate in Foreground (Right side) -->
+    <g transform="translate(730, 260) scale(0.9)">
+        <!-- Vertical Pillars -->
+        <rect x="0" y="30" width="14" height="120" fill="#BE123C" rx="2"/>
+        <rect x="100" y="30" width="14" height="120" fill="#BE123C" rx="2"/>
+        <!-- Shadows -->
+        <rect x="0" y="30" width="4" height="120" fill="#881337"/>
+        <rect x="100" y="30" width="4" height="120" fill="#881337"/>
+        
+        <!-- Top Arch Beam -->
+        <path d="M -20 20 Q 57 10, 134 20 L 134 5 Q 57 -5, -20 5 Z" fill="#E11D48"/>
+        <!-- Bottom intersecting beam -->
+        <rect x="-5" y="45" width="124" height="12" fill="#BE123C" rx="2"/>
+        <rect x="-5" y="45" width="124" height="4" fill="#E11D48"/>
+        
+        <!-- Center Plaque -->
+        <rect x="47" y="25" width="20" height="30" fill="#140624" stroke="#FB7185" stroke-width="1"/>
+    </g>
+
+    <!-- 10. Sakura Particle Emitter -->
+    <g>
+        <path d="M 0 0 C 10 -5, 10 5, 0 10 C -10 5, -10 -5, 0 0" class="petal" style="animation-duration: 7s; animation-delay: 0s; scale: 1.2;" />
+        <path d="M 200 -50 C 210 -55, 210 -45, 200 -40 C 190 -45, 190 -55, 200 -50" class="petal" style="animation-duration: 11s; animation-delay: 2s; scale: 0.8;" />
+        <path d="M 400 -20 C 415 -25, 415 -15, 400 -10 C 385 -15, 385 -25, 400 -20" class="petal" style="animation-duration: 9s; animation-delay: 1s;" />
+        <path d="M 600 -80 C 608 -83, 608 -77, 600 -74 C 592 -77, 592 -83, 600 -80" class="petal" style="animation-duration: 10s; animation-delay: 4s; scale: 1.5;" />
+        <path d="M 800 -10 C 815 -15, 815 -5, 800 0 C 785 -5, 785 -15, 800 -10" class="petal" style="animation-duration: 13s; animation-delay: 0.5s;" />
+        <path d="M 900 100 C 910 95, 910 105, 900 110 C 890 105, 890 95, 900 100" class="petal" style="animation-duration: 8s; animation-delay: 3s; filter: drop-shadow(0 0 2px #FBCFE8);" />
+        <path d="M 350 -100 C 360 -105, 360 -95, 350 -90 C 340 -95, 340 -105, 350 -100" class="petal" style="animation-duration: 6s; animation-delay: 5s;" />
+        <path d="M 100 -20 C 115 -25, 115 -15, 100 -10 C 85 -15, 85 -25, 100 -20" class="petal" style="animation-duration: 12s; animation-delay: 7s; scale: 1.3" />
+        <path d="M 500 -150 C 510 -155, 510 -145, 500 -140 C 490 -145, 490 -155, 500 -150" class="petal" style="animation-duration: 9s; animation-delay: 6s; scale: 0.9" />
+    </g>
+
 </svg>

@@ -1,30 +1,13 @@
 <div align="center">
   <picture>
-    <img src="assets/hero/hero.svg" alt="Tanmay Mishra - Software Engineer & Traveler">
+    <img src="assets/hero/hero.svg" alt="Tanmay Mishra - Pure Animated Anime Landscape">
   </picture>
 </div>
 
 <br>
-
-<div align="center">
-  <picture>
-    <img src="assets/dashboard/status.svg" alt="System Status and Metrics Dashboard">
-  </picture>
-</div>
-
-<br>
-
-## 🧑‍💻 Trail Initialization: `whoami`
 
 <img align="right" src="assets/mascot/claudie-float-1.svg" height="250" alt="Claudie descending with parachute" />
-
-<div align="center">
-  <picture>
-    <img src="assets/general/terminal.svg" alt="Terminal output showing skills and focus">
-  </picture>
-</div>
-
----
+<br>
 
 ## 🚀 Flagship Expedition: HunterMind
 
@@ -82,10 +65,10 @@
   <table>
     <tr>
       <td>
-        <img align="center" src="https://github-readme-stats.vercel.app/api?username=tanmaymish&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0B1021&title_color=FFB067&icon_color=38BDF8&text_color=F1F5F9" alt="GitHub Stats" />
+        <img align="center" src="https://github-readme-stats.vercel.app/api?username=tanmaymish&show_icons=true&theme=tokyonight&hide_border=true&bg_color=14082B&title_color=F472B6&icon_color=60A5FA&text_color=FDF2F8" alt="GitHub Stats" />
       </td>
       <td>
-        <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=tanmaymish&layout=compact&theme=tokyonight&hide_border=true&bg_color=0B1021&title_color=FFB067&text_color=F1F5F9" alt="Top Languages" />
+        <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=tanmaymish&layout=compact&theme=tokyonight&hide_border=true&bg_color=14082B&title_color=F472B6&text_color=FDF2F8" alt="Top Languages" />
       </td>
     </tr>
   </table>
