@@ -1,6 +1,6 @@
 <div align="center">
   <picture>
-    <img src="assets/hero/hero.svg" alt="Tanmay Mishra - Software Engineer & Cybersecurity">
+    <img src="assets/hero/hero.svg" alt="Tanmay Mishra - Software Engineer & Traveler">
   </picture>
 </div>
 
@@ -14,9 +14,9 @@
 
 <br>
 
-## 🧑‍💻 System Initialization: `whoami`
+## 🧑‍💻 Trail Initialization: `whoami`
 
-<img align="right" src="assets/mascot/claudie-float-1.svg" width="120" alt="Claudie floating with balloons" />
+<img align="right" src="assets/mascot/claudie-float-1.svg" height="250" alt="Claudie descending with parachute" />
 
 <div align="center">
   <picture>
@@ -26,22 +26,22 @@
 
 ---
 
-## 🚀 Flagship Mission: HunterMind
+## 🚀 Flagship Expedition: HunterMind
 
 **Automated Threat Intelligence Engine**
 > HunterMind orchestrates OSINT and vulnerability scanning workflows using a distributed task queue with Redis and Celery. 
 
 - **Stack:** Python, Go, Docker, AWS
 - **Architecture:** Microservices-based distributed scanning pipeline.
-- **Modules:** Recon, Subdomains, DNS, CT Logs, ASN, Wayback, GitHub, API Discovery, AI Analysis, Risk Scoring
+- **Modules:** Recon, Subdomains, DNS, CT Logs, ASN, Wayback, GitHub, API Discovery
 
-*Status: Under Active Development.*
+[ 🔗 View Repository ](https://github.com/tanmaymish) &nbsp;&nbsp;&nbsp; [ 🌐 Live Demo ](https://github.com/tanmaymish) &nbsp;&nbsp;&nbsp; [ 📜 Read Docs ](https://github.com/tanmaymish)
 
 ---
 
 ## 🏗 Distributed Systems Engineering
 
-<img align="right" src="assets/mascot/claudie-float-2.svg" width="120" alt="Claudie reading while floating" />
+<img align="right" src="assets/mascot/claudie-float-2.svg" height="250" alt="Claudie climbing down on a rope" />
 
 <div align="center">
   <picture>
@@ -49,26 +49,24 @@
   </picture>
 </div>
 
-### Projects & Engineering Experience
+### Peak Projects & Engineering Experience
 
-| Mission | Role / Tech Stack | Status Report |
+| Mission | Details | Actions |
 | :--- | :--- | :--- |
-| **DOMA** | *Spring Boot, Kafka, PostgreSQL* | High-throughput order processing system mimicking Swiggy/Zomato logistics. |
-| **Vision** | *Software Engineering Intern* | Redesigned order management service resulting in a 30% execution speedup. |
-| **FileGuard** | *Python, Flask, Celery, React* | File Integrity Monitoring System achieving 99.9% detection accuracy. |
-| **Oil Spill Detection** | *Python, ML, GIS, Satellite* | Smart India Hackathon Finalist. Reduced alert times by 40%. |
-| **GSoC 2019** | *PHP, WebSockets, REST APIs* | Submitty Core Contributor. Built WebSocket-based real-time forum modules. |
+| **DOMA** | **High-throughput Order Processing System** <br> *Spring Boot, Kafka, PostgreSQL* | [ 🔗 Repo ](https://github.com/tanmaymish) <br> [ 🌐 Demo ](https://github.com/tanmaymish) |
+| **Vision** | **Software Engineering Intern** <br> *Redesigned order management service resulting in a 30% execution speedup.* | [ 🔗 Details ](https://github.com/tanmaymish) |
+| **FileGuard** | **File Integrity Monitoring System** <br> *Achieved 99.9% detection accuracy using Python, Celery.* | [ 🔗 Repo ](https://github.com/tanmaymish) <br> [ 📜 Docs ](https://github.com/tanmaymish) |
+| **Oil Spill** | **Early Warning Detection System** <br> *Smart India Hackathon Finalist. Reduced alert times by 40%.* | [ 🔗 Repo ](https://github.com/tanmaymish) <br> [ 🌐 Demo ](https://github.com/tanmaymish) |
 
 ---
 
-## 🛡 Cyber Operations & Security Research
+## 🛡 Security Basecamp
 
 - **Researcher @ Bugcrowd & HackerOne:** Discovered and reported 25+ CVEs/vulnerabilities.
 - **Certifications:** 
   - GRC and Cybersecurity (IFS Pune)
   - DDoS Attack and Defense 
   - Advanced System Security
-  - Cloud Computing Security
 
 <div align="center">
   <picture>
@@ -84,10 +82,10 @@
   <table>
     <tr>
       <td>
-        <img align="center" src="https://github-readme-stats.vercel.app/api?username=tanmaymish&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0F0C10&title_color=FF9F1C&icon_color=00F4D2&text_color=FFFBF5" alt="GitHub Stats" />
+        <img align="center" src="https://github-readme-stats.vercel.app/api?username=tanmaymish&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0B1021&title_color=FFB067&icon_color=38BDF8&text_color=F1F5F9" alt="GitHub Stats" />
       </td>
       <td>
-        <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=tanmaymish&layout=compact&theme=tokyonight&hide_border=true&bg_color=0F0C10&title_color=FF9F1C&text_color=FFFBF5" alt="Top Languages" />
+        <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=tanmaymish&layout=compact&theme=tokyonight&hide_border=true&bg_color=0B1021&title_color=FFB067&text_color=F1F5F9" alt="Top Languages" />
       </td>
     </tr>
   </table>
@@ -105,6 +103,6 @@
 
 <div align="center">
   <picture>
-    <img src="assets/general/footer.svg" alt="Animated Footer Wave">
+    <img src="assets/general/footer.svg" alt="Animated Footer Hills">
   </picture>
 </div>

@@ -3,72 +3,56 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Inter:wght@400;600;700&amp;display=swap');
             
-            .bg { fill: #0F0C10; } /* very dark warm slate */
-            
-            /* Luminous Grid */
-            .grid { 
-                stroke: url(#gridGrad); 
-                stroke-width: 1.5; 
-                fill: none;
-                opacity: 0.3;
-            }
-            .grid-moving {
-                animation: panGrid 15s linear infinite;
-            }
-            @keyframes panGrid {
-                0% { transform: translateY(0) translateX(0); }
-                100% { transform: translateY(40px) translateX(40px); }
-            }
+            .sky { fill: #0B1021; }
+            .mount-back { fill: #131B2A; }
+            .mount-mid { fill: #1E293B; }
+            .mount-front { fill: #0F172A; }
+            .fog { fill: #2E4057; opacity: 0.3; }
             
             .title {
                 font-family: 'Inter', sans-serif;
                 font-weight: 700;
                 font-size: 46px;
-                fill: #FFFBF5;
+                fill: #F1F5F9;
                 letter-spacing: -1px;
             }
-            
             .subtitle {
                 font-family: 'Inter', sans-serif;
                 font-weight: 400;
                 font-size: 22px;
-                fill: url(#textGrad);
+                fill: #FFB067;
             }
-            
             .typewriter {
                 font-family: 'JetBrains Mono', monospace;
                 font-size: 16px;
-                fill: #FF9F1C;
+                fill: #38BDF8;
             }
-
             .cursor {
-                fill: #FF9F1C;
+                fill: #38BDF8;
                 animation: blink 1s step-end infinite;
             }
             @keyframes blink { 50% { opacity: 0; } }
-            
-            .particle {
-                fill: #FF7A59;
-                opacity: 0.7;
-            }
-            
-            .glow {
-                filter: drop-shadow(0 0 12px rgba(255, 122, 89, 0.9));
-            }
-            
-            .indicator {
-                fill: #00F4D2;
-                animation: pulse 2s infinite;
-            }
-            @keyframes pulse {
-                0% { fill: #00F4D2; filter: drop-shadow(0 0 4px #00F4D2); }
-                50% { fill: #008f7a; filter: drop-shadow(0 0 12px #00F4D2); }
-                100% { fill: #00F4D2; filter: drop-shadow(0 0 4px #00F4D2); }
-            }
 
+            .star { fill: #FFF; opacity: 0; animation: twinkle 4s infinite alternate; }
+            @keyframes twinkle {
+                0% { opacity: 0.1; }
+                50% { opacity: 1; transform: scale(1.2); }
+                100% { opacity: 0.1; }
+            }
+            
+            .cloud {
+                fill: #FFF;
+                opacity: 0.05;
+                animation: drift linear infinite;
+            }
+            @keyframes drift {
+                from { transform: translateX(850px); }
+                to { transform: translateX(-200px); }
+            }
+            
             .box {
-                fill: rgba(30, 25, 35, 0.6);
-                stroke: rgba(255, 255, 255, 0.05);
+                fill: rgba(15, 23, 42, 0.7);
+                stroke: rgba(255, 255, 255, 0.1);
                 stroke-width: 1;
                 rx: 12;
                 backdrop-filter: blur(10px);
@@ -78,120 +62,94 @@
                 font-family: 'Inter', sans-serif;
                 font-weight: 600;
                 font-size: 12px;
-                fill: #FFCDB2;
+                fill: #94A3B8;
                 letter-spacing: 0.5px;
             }
             
             .text-sm-value {
                 font-family: 'JetBrains Mono', monospace;
                 font-size: 14px;
-                fill: #FFFBF5;
-            }
-            
-            /* Typing animation */
-            .typing-text {
-                display: inline-block;
-                width: 0;
-                white-space: nowrap;
-                overflow: hidden;
-                border-right: 2px solid #FF9F1C;
-                animation: typing 4s steps(40) infinite alternate, cursorBlink .75s step-end infinite;
+                fill: #E2E8F0;
             }
         </style>
         
-        <linearGradient id="gridGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#FF7A59" />
-            <stop offset="50%" stop-color="#8B5CF6" />
-            <stop offset="100%" stop-color="#00F4D2" />
-        </linearGradient>
-
-        <linearGradient id="textGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#FF9F1C" />
-            <stop offset="100%" stop-color="#FF7A59" />
-        </linearGradient>
-        
-        <pattern id="smallGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" class="grid" />
-        </pattern>
-        
-        <radialGradient id="glowG" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#FF7A59" stop-opacity="0.2"/>
-            <stop offset="100%" stop-color="#0F0C10" stop-opacity="0"/>
+        <!-- Gradient Moon -->
+        <radialGradient id="moonG" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFD166" />
+            <stop offset="100%" stop-color="#EF476F" stop-opacity="0" />
         </radialGradient>
+        
+        <!-- Mist Gradient -->
+        <linearGradient id="mistG" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#0F172A" />
+            <stop offset="100%" stop-color="#0F172A" stop-opacity="0" />
+        </linearGradient>
     </defs>
     
-    <!-- Background -->
-    <rect width="800" height="400" class="bg" />
-    <circle cx="650" cy="150" r="250" fill="url(#glowG)" />
+    <!-- Background Sky -->
+    <rect width="800" height="400" class="sky" />
     
-    <!-- Animated Grid -->
-    <g class="grid-moving">
-        <rect width="840" height="440" x="-40" y="-40" fill="url(#smallGrid)" />
-    </g>
-    
-    <rect width="800" height="400" fill="#0F0C10" opacity="0.6"/>
-    
-    <!-- Particles -->
+    <!-- Stars -->
     <g>
-        <circle cx="150" cy="80" r="3" class="particle glow">
-            <animate attributeName="cy" values="80; 50; 80" dur="4s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.4; 1; 0.4" dur="3s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="650" cy="120" r="4" class="particle glow" fill="#00F4D2">
-            <animate attributeName="cy" values="120; 90; 120" dur="5s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.3; 1; 0.3" dur="4s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="700" cy="300" r="2" class="particle glow" fill="#8B5CF6">
-            <animate attributeName="cy" values="300; 340; 300" dur="6s" repeatCount="indefinite"/>
-        </circle>
+        <circle cx="100" cy="50" r="1.5" class="star" style="animation-delay: 0s" />
+        <circle cx="250" cy="120" r="1" class="star" style="animation-delay: 1s" />
+        <circle cx="600" cy="80" r="2" class="star" style="animation-delay: 2s" />
+        <circle cx="720" cy="40" r="1.5" class="star" style="animation-delay: 0.5s" />
+        <circle cx="450" cy="30" r="1" class="star" style="animation-delay: 1.5s" />
+        <circle cx="50" cy="180" r="2" class="star" style="animation-delay: 2.5s" />
     </g>
+
+    <!-- Moon/Sun -->
+    <circle cx="680" cy="150" r="80" fill="url(#moonG)" opacity="0.6"/>
+    <circle cx="680" cy="150" r="30" fill="#FFD166" filter="drop-shadow(0 0 10px #FFD166)"/>
+
+    <!-- Drifting Clouds -->
+    <path d="M 0 0 Q 30 -20 60 0 Q 90 -10 120 10 Q 80 20 0 0 Z" class="cloud" style="animation-duration: 40s; animation-delay: -10s; transform: scale(1.5) translateY(50px);" />
+    <path d="M 0 0 Q 40 -30 80 0 Q 120 -20 160 10 Q 100 30 0 0 Z" class="cloud" style="animation-duration: 60s; animation-delay: -30s; transform: scale(2) translateY(120px);" />
+    <path d="M 0 0 Q 25 -15 50 0 Q 75 -10 100 5 Q 50 15 0 0 Z" class="cloud" style="animation-duration: 45s; transform: scale(1.2) translateY(200px);" />
+
+    <!-- Mountain Layers -->
+    <!-- Back -->
+    <path d="M 0 250 L 150 120 L 300 230 L 450 140 L 600 250 L 800 100 L 800 400 L 0 400 Z" class="mount-back" />
+    <!-- Mist -->
+    <rect width="800" height="250" y="150" fill="url(#mistG)" opacity="0.5"/>
     
+    <!-- Mid -->
+    <path d="M 0 280 L 100 200 L 250 310 L 400 180 L 550 260 L 700 160 L 800 230 L 800 400 L 0 400 Z" class="mount-mid" />
+    
+    <!-- Front -->
+    <path d="M 0 350 L 200 220 L 380 340 L 580 200 L 750 320 L 800 280 L 800 400 L 0 400 Z" class="mount-front" />
+    
+    <!-- Dark Foreqround Base overlay to make text pop -->
+    <rect width="800" height="400" fill="#0B1021" opacity="0.5"/>
+
     <!-- Content Container -->
     <g transform="translate(60, 90)">
         <text y="0" class="title">Tanmay Mishra</text>
-        <text y="35" class="subtitle">Software Engineer &amp; Cybersecurity</text>
+        <text y="35" class="subtitle">Software Engineer &amp; Traveler</text>
         
-        <!-- Interactive Terminal-like typing -->
+        <!-- Interactive Terminal-like typing, styled for nature -->
         <g transform="translate(0, 75)">
-            <rect width="360" height="44" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-            <text x="15" y="27" class="typewriter">$ <tspan fill="#FFFBF5">Engineer graceful recovery.</tspan></text>
-            <!-- Cursor block for manual anim -->
+            <rect width="360" height="44" rx="8" fill="rgba(15, 23, 42, 0.4)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <text x="15" y="27" class="typewriter">> <tspan fill="#F1F5F9">Engineer graceful recovery.</tspan></text>
             <rect x="250" y="13" width="9" height="18" class="cursor" />
         </g>
         
-        <!-- Status Boxes (Glassmorphism) -->
+        <!-- Status Boxes -->
         <g transform="translate(0, 150)">
             <rect x="0" y="0" width="160" height="80" class="box"/>
-            <circle cx="20" cy="25" r="4" class="indicator"/>
+            <circle cx="20" cy="25" r="4" fill="#10B981" filter="drop-shadow(0 0 3px #10B981)"/>
             <text x="35" y="30" class="text-sm">SYSTEM STATUS</text>
-            <text x="15" y="60" class="text-sm-value" fill="#00F4D2">ONLINE</text>
+            <text x="15" y="60" class="text-sm-value" fill="#34D399">ONLINE</text>
             
             <rect x="180" y="0" width="160" height="80" class="box"/>
-            <text x="195" y="30" class="text-sm">CURRENT MISSION</text>
-            <text x="195" y="60" class="text-sm-value" fill="#FF9F1C">HUNTERMIND</text>
+            <text x="195" y="30" class="text-sm">CURRENT TRAIL</text>
+            <text x="195" y="60" class="text-sm-value" fill="#FFB067">HUNTERMIND</text>
             
             <rect x="360" y="0" width="160" height="80" class="box"/>
             <text x="375" y="30" class="text-sm">AVAILABILITY</text>
-            <text x="375" y="60" class="text-sm-value" fill="#FF7A59">OPEN TO ROLES</text>
+            <text x="375" y="60" class="text-sm-value" fill="#38BDF8">EXPLORING ROLES</text>
         </g>
     </g>
 
-    <!-- Side Graphic Luminous Orb -->
-    <g transform="translate(560, 70)">
-        <circle cx="100" cy="100" r="100" fill="rgba(139, 92, 246, 0.1)" />
-        <circle cx="100" cy="100" r="80" fill="none" stroke="url(#gridGrad)" stroke-width="1"/>
-        <circle cx="100" cy="100" r="60" fill="none" stroke="#FF7A59" stroke-width="2" stroke-dasharray="8 4">
-            <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="20s" repeatCount="indefinite"/>
-        </circle>
-        
-        <!-- Glowing Core -->
-        <circle cx="100" cy="100" r="20" fill="#00F4D2">
-             <animate attributeName="r" values="20; 25; 20" dur="3s" repeatCount="indefinite"/>
-             <animate attributeName="opacity" values="0.8; 1; 0.8" dur="3s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="100" cy="100" r="30" fill="none" stroke="#00F4D2" stroke-width="2" class="glow">
-             <animate attributeName="r" values="25; 45; 25" dur="2s" repeatCount="indefinite"/>
-             <animate attributeName="opacity" values="0.8; 0; 0.8" dur="2s" repeatCount="indefinite"/>
-        </circle>
-    </g>
 </svg>

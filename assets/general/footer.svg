@@ -3,51 +3,39 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono&amp;display=swap');
             
-            .bg { fill: #050816; }
-            .wave { fill: #0B1220; }
-            .wave-highlight { stroke: #3B82F6; stroke-width: 2; fill: none; opacity: 0.5; }
+            .bg { fill: #0B1021; }
+            .hill-1 { fill: #1E293B; }
+            .hill-2 { fill: #0F172A; }
             
-            .quote { font-family: 'Inter', sans-serif; font-weight: 400; font-style: italic; font-size: 16px; fill: #9CA3AF; text-anchor: middle; }
-            .author { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; fill: #8B5CF6; text-anchor: middle; }
-            .links { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #06B6D4; text-anchor: middle; }
+            .quote { font-family: 'Inter', sans-serif; font-weight: 400; font-style: italic; font-size: 16px; fill: #94A3B8; text-anchor: middle; }
+            .author { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; fill: #FFB067; text-anchor: middle; }
+            .links { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #38BDF8; text-anchor: middle; }
             
-            @keyframes w1 { 
+            @keyframes panHills { 
                 0% { transform: translateX(0); }
                 100% { transform: translateX(-400px); }
             }
-            .anim-wave {
-                animation: w1 10s linear infinite;
-            }
-            
-            @keyframes w2 { 
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-400px); }
-            }
-            .anim-wave-fast {
-                animation: w2 7s linear infinite reverse;
-            }
+            .anim-hills-slow { animation: panHills 20s linear infinite; }
+            .anim-hills-fast { animation: panHills 12s linear infinite reverse; }
         </style>
     </defs>
     
     <rect width="800" height="200" class="bg" />
 
-    <!-- Animated Waves Background -->
-    <g transform="translate(0, 100)" opacity="0.6">
-        <g class="anim-wave">
-            <!-- Long wave path extending to 1200px to allow smooth loop on 800px view -->
-            <path d="M 0 50 Q 100 0, 200 50 T 400 50 T 600 50 T 800 50 T 1000 50 T 1200 50 L 1200 100 L 0 100 Z" class="wave" />
-            <path d="M 0 50 Q 100 0, 200 50 T 400 50 T 600 50 T 800 50 T 1000 50 T 1200 50" class="wave-highlight" />
+    <!-- Animated Rolling Hills -->
+    <g transform="translate(0, 80)">
+        <g class="anim-hills-slow" opacity="0.8">
+            <path d="M 0 60 Q 100 20, 200 60 T 400 60 T 600 60 T 800 60 T 1000 60 T 1200 60 L 1200 120 L 0 120 Z" class="hill-1" />
         </g>
-        <g class="anim-wave-fast" transform="translate(0, 10)">
-            <path d="M 0 40 Q 100 80, 200 40 T 400 40 T 600 40 T 800 40 T 1000 40 T 1200 40 L 1200 100 L 0 100 Z" fill="#050816" opacity="0.5"/>
-            <path d="M 0 40 Q 100 80, 200 40 T 400 40 T 600 40 T 800 40 T 1000 40 T 1200 40" stroke="#06B6D4" stroke-width="2" fill="none" opacity="0.3"/>
+        <g class="anim-hills-fast" transform="translate(0, 20)" opacity="0.9">
+            <path d="M 0 50 Q 80 10, 160 50 T 320 50 T 480 50 T 640 50 T 800 50 T 960 50 T 1120 50 T 1280 50 L 1280 120 L 0 120 Z" class="hill-2" />
         </g>
     </g>
 
-    <text x="400" y="60" class="quote">"Build systems. Not features."</text>
-    <text x="400" y="85" class="author">— Engineering Philosophy</text>
+    <text x="400" y="40" class="quote">"Build systems. Not features. Peak by peak."</text>
+    <text x="400" y="65" class="author">— Engineering Philosophy</text>
     
-    <text x="400" y="160" class="links">GITHUB • LINKEDIN • EMAIL</text>
-    <text x="400" y="180" class="links" fill="#4B5563" font-size="11">SYSTEM OPERATIONS TERMINATED.</text>
+    <text x="400" y="150" class="links">GITHUB • LINKEDIN • EMAIL</text>
+    <text x="400" y="170" class="links" fill="#64748B" font-size="11">BASECAMP SECURED.</text>
 
 </svg>
